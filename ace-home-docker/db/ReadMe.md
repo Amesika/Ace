@@ -1,7 +1,7 @@
 # Db info
 
-Totale Source : 1897819
+Totale Source : 882921
 
-Totale depense : 1827717
+Totale depense : 960106
 
-Balance : 70102
+Balance : -77185
