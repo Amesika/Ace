@@ -1,3 +1,46 @@
-.wlc{
-    text-align: center;
+.navbar{
+    padding: 0;
 }
+
+.core{
+}
+
+.menu{
+    background-color:#f5f6fa;
+    height: calc(100vh - 40px);
+    border-right: 1px solid  #dcdde1;
+}
+
+.menu-item{
+    cursor: pointer;
+}
+
+
+
+
+.menu-item a{
+    text-decoration: none;
+    color: black;
+    font-weight: lighter;
+    
+}
+
+.menu-item .is-active{
+    font-weight: 700;
+    text-align: center;
+   
+}
+
+ul{
+    margin: O;
+    padding: 0;
+}
+
+li.menu-item{
+    list-style-type: none;
+    margin: 7px 0;
+}
+
+
+
+

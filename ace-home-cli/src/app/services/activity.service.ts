@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ActivityService {
 
-  href = "http:localhost:8080";
-  apiUrl = '/api/activity'
+  href = "http://localhost:8080";
+  apiUrl = '/api/activity/balance'
 
   constructor(protected _http: HttpClient) {
   }

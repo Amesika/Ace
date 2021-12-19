@@ -2,7 +2,20 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">ACE HOME</a>
   </div>
-</nav> 
-<h3 class="wlc">
-      Bienvenu sur AceHome...
-</h3>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 menu">
+      <ul>
+        <!--<li class="menu-item"><a [routerLink] = "['']" [routerLinkActive]="'is-active'" >Tableau de bord</a></li>!-->
+
+        <li class="menu-item"><a [routerLink]="['home']" [routerLinkActive]="'is-active'">Tableau de bord</a></li>
+        <li class="menu-item"><a [routerLink]="['activity']" [routerLinkActive]="'is-active'">Activité</a></li>
+      </ul>
+    </div>
+    <div class="col-10 core">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

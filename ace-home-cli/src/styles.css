@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+
+body{
+    height: 100%;
+}
+
+html{
+    height: 100%;
+}
+
+.ace-blue{
+    color: #0c2461;
+}
+
+.ace-red{
+    color: #c0392b;
+}
