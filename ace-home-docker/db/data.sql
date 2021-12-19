@@ -1,13 +1,15 @@
 DROP TABLE IF EXISTS "activity";
 
-CREATE TABLE "activity" (
-  id SERIAL PRIMARY KEY,
-  description varchar(255) default NULL,
-  amount integer NULL,
-  note TEXT default NULL,
-  _type varchar(255) default NULL,
-  _date varchar(255),
-  _delete boolean default False
+CREATE TABLE IF NOT EXISTS public.activity
+(
+    id integer NOT NULL DEFAULT nextval('activity_id_seq'::regclass),
+    description character varying(255) COLLATE pg_catalog."default" DEFAULT NULL::character varying,
+    amount integer,
+    note text COLLATE pg_catalog."default",
+    _type character varying(255) COLLATE pg_catalog."default" DEFAULT NULL::character varying,
+    _date character varying(255) COLLATE pg_catalog."default",
+    _delete boolean NOT NULL DEFAULT false,
+    CONSTRAINT activity_pkey PRIMARY KEY (id)
 );
 
 INSERT INTO activity (description,amount,note,_type,_date,_delete)
