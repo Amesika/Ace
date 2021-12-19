@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Activity } from 'src/app/models/activity';
 
 @Component({
@@ -12,10 +12,29 @@ export class ActivityListComponent implements OnInit {
   @Input()items:Activity[]=[];
   @Input()color:String ="";
 
+  @Output() crudItemEvent = new EventEmitter<string>();
+
+  modalId_="#activity-dash";
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  
+  edit(){
+
+    console.log("Edit activity")
+    this.crudItemEvent.emit("Modifier une activité");
+  }
+
+  delete(){
+    console.log("Delete activity")
+    this.crudItemEvent.emit("Supprimer une activité");
+  }
+
+  copy(){
+    console.log("Copy activity")
+    this.crudItemEvent.emit("Créer une activité");
   }
 
 }

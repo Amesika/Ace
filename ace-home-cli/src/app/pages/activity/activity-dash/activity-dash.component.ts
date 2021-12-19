@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { Activity } from 'src/app/models/activity';
 import { ActivityService } from 'src/app/services/activity.service';
@@ -14,6 +14,10 @@ export class ActivityDashComponent implements OnInit {
   date:String="";
   sources: Activity[]=[];
   depenses: Activity[]=[];
+
+  modalId="activity-dash";
+  modalId_="#activity-dash";
+  modalTitle="";
 
   constructor(private actSrv:ActivityService  ) { }
 
@@ -47,6 +51,16 @@ export class ActivityDashComponent implements OnInit {
     this.actSrv.getBalance().subscribe(data=>{
       this.balance = data;
     })
+  }
+
+  addActivity(){
+     console.log("addActivity")
+     this.modalTitle="Créer une activité"
+  }
+
+  handleCrudEvent(event:any){
+    console.log("handleCrudEvent")
+    this.modalTitle=event
   }
 
 }

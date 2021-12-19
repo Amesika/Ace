@@ -1,4 +1,15 @@
 .list-group{
-    height:70vh;
+    height:65vh;
     overflow-y: auto;
+}
+
+.ellipsis{
+    border-left: 1.5px solid lightgray;
+    margin-left: 10px;
+    padding-left:3px;
+}
+.dropdown-item{
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
 }

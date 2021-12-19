@@ -8,11 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ActivityModule } from './pages/activity/activity.module';
 import { HomeComponent } from './pages/home/home.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,7 @@ import { HomeComponent } from './pages/home/home.component';
     HttpClientModule,
     AppRoutingModule,
     ActivityModule,
+    SharedModule,
     FormsModule ,   
   ],
   providers: [],
