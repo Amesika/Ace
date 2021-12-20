@@ -22,9 +22,15 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
     @Query(value = "SELECT * From activity WHERE _delete=false Order By _date desc", nativeQuery = true)
     List<Activity> getActivities();
 
-    @Query(value = "SELECT * From activity WHERE _delete=false AND _date BETWEEN :startDate AND :endDate Order By _date desc", nativeQuery = true)
+    @Query(value = "SELECT * From activity WHERE _delete=false AND _date BETWEEN :startDate AND :endDate AND _delete = false Order By _date desc", nativeQuery = true)
     List<Activity> getActivities(
             @Param("startDate") String startDate,
             @Param("endDate") String endDate);
+
+    @Query(value = "SELECT * From activity WHERE _delete=false AND _date BETWEEN :startDate AND :endDate AND _type = :type AND _delete = false Order By _date desc", nativeQuery = true)
+    List<Activity> getActivitiesByType(
+        @Param("startDate") String startDate, 
+        @Param("endDate") String endDate, 
+        @Param("type") String type);
 
 }

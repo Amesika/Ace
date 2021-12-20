@@ -84,6 +84,17 @@ public class ActivityService {
         return activities;
     }
 
+    // Liste Activity between two date by Type
+    public List<ActivityDTO> listActivityType(String startDate,String endDate,String type){
+
+        List<ActivityDTO> activities;
+        List<Activity> list;
+        //list = actRepo.findAll();
+        list = actRepo.getActivitiesByType(startDate,endDate,type);
+        activities = mapper.map(list);
+        return activities;
+    }
+
     // get balance
     public float balance(){
 

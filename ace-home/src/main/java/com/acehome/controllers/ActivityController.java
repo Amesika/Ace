@@ -2,6 +2,7 @@ package com.acehome.controllers;
 
 import java.util.List;
 
+import com.acehome.entities.Activity;
 import com.acehome.model.ActivityDTO;
 import com.acehome.services.ActivityService;
 
@@ -41,6 +42,16 @@ public class ActivityController {
 		return new ResponseEntity<>(actsDto, HttpStatus.OK);
 	}
 
+	@GetMapping("/type")
+    public ResponseEntity<?> getActivities(
+        @RequestParam("start-date") String startDate,
+        @RequestParam("end-date") String endDate,
+		@RequestParam("type") String type) {
+		logger.info("Get Activities Between Two Date By Type");
+		List<ActivityDTO> actsDto =  actSrv.listActivityType(startDate,endDate,type);
+		return new ResponseEntity<>(actsDto, HttpStatus.OK);
+	}
+
 	@GetMapping("/all")
     public ResponseEntity<?> getActivities() {
 		logger.info("Get Activities");
@@ -72,7 +83,7 @@ public class ActivityController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteActivity(@PathVariable("id") Long activityDtoId) {
 		logger.info("Delete Activity");
-		ActivityDTO actDto =  actSrv.getActivity(activityDtoId);
+		Activity actDto =  actSrv.deleteActivity(activityDtoId);
 		return new ResponseEntity<>(actDto, HttpStatus.OK);
 	}
 
