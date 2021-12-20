@@ -20,14 +20,14 @@
                             </i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li title="Modifier"><a class="dropdown-item" data-bs-toggle="modal" [attr.data-bs-target]="modalId_" (click)="edit()"><i class="fa fa-pencil-square-o"
+                            <li title="Modifier"><a class="dropdown-item" data-bs-toggle="modal" [attr.data-bs-target]="modalId_" (click)="edit(item)"><i class="fa fa-pencil-square-o"
                                         aria-hidden="true"></i> Modifier</a></li>
-                            <li title="Copier"><a class="dropdown-item" data-bs-toggle="modal" [attr.data-bs-target]="modalId_" (click)="copy()"><i class="fa fa-clone" aria-hidden="true"></i>
+                            <li title="Copier"><a class="dropdown-item" data-bs-toggle="modal" [attr.data-bs-target]="modalId_" (click)="copy(item)"><i class="fa fa-clone" aria-hidden="true"></i>
                                     Copier</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li title="Supprimer" class=""><a class="dropdown-item" data-bs-toggle="modal" [attr.data-bs-target]="modalId_" (click)="delete()"><i class="fa fa-trash-o"
+                            <li title="Supprimer" class=""><a class="dropdown-item" data-bs-toggle="modal" [attr.data-bs-target]="modalId_" (click)="delete(item)"><i class="fa fa-trash-o"
                                         aria-hidden="true"></i> Supprimer</a></li>
                         </ul>
                     </span>

@@ -15,27 +15,25 @@
       <div class="row align-items-end">
         <div class="col-md-4">
           <div class="date">
-            <i class="fa fa-calendar" aria-hidden="true"></i> : {{date}} 
+            <i class="fa fa-calendar" aria-hidden="true"></i> : {{date}}
           </div>
         </div>
         <div class="col-md-4 ms-auto">
-          <button class="btn btn-primary pull-right" data-bs-toggle="modal" [attr.data-bs-target]="modalId_" (click)=addActivity()><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+          <button class="btn btn-primary pull-right" data-bs-toggle="modal" [attr.data-bs-target]="modalId_"
+            (click)=addActivity()><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
     <div class="detail col-12">
       <div class="row">
         <div class="col-6">
-          <app-activity-list 
-          title="Source" 
-          [items]=sources 
-          color="#0c2461"
-          (crudItemEvent)="handleCrudEvent($event)"
-          ></app-activity-list>
+          <app-activity-list title="Source" [items]=sources color="#0c2461" (crudItemEvent)="handleCrudEvent($event)">
+          </app-activity-list>
         </div>
         <div class="col-6">
           <div>
-            <app-activity-list title="Dépense" [items]=depenses color="#c0392b"></app-activity-list>
+            <app-activity-list title="Dépense" [items]=depenses color="#c0392b"
+              (crudItemEvent)="handleCrudEvent($event)"></app-activity-list>
           </div>
         </div>
       </div>
@@ -46,7 +44,9 @@
 </div>
 
 <app-modal [modalId]="modalId" [title]="modalTitle">
-    <app-activity-form></app-activity-form>
+  <span>
+    <app-activity-form *ngIf="modalOption<3" [option]="modalOption" [act]="selectAct" (dataEvent)="handleDataEvent()">
+    </app-activity-form>
+  </span>
+  <app-delete-form *ngIf="modalOption==3" [act]="selectAct" (dataEvent)="handleDataEvent()"></app-delete-form>
 </app-modal>
-
-

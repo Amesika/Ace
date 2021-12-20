@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from './modal/modal.component';
+import { DeleteFormComponent } from './delete-form/delete-form.component';
 
 
 
 @NgModule({
   declarations: [
-    ModalComponent
+    ModalComponent,
+    DeleteFormComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    ModalComponent
+    ModalComponent,
+    DeleteFormComponent
   ],
 })
 export class SharedModule { }

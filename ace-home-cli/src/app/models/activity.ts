@@ -1,17 +1,17 @@
 export class Activity{
     id:number;
-    description:string;
+    description:String;
     amount:number;
-    note:string;
-    _type:string;
-    _date:string;
+    note:String;
+    _type:String;
+    _date:String;
 
-    constructor(){
-        this.id=0;
-        this.description="";
-        this.amount=0;
-        this.note="";
-        this._type="";
-        this._date="";
+    constructor(description?:String,amount?:number,note?:String,_type?:String,_date?:String){
+        this.id = 0;
+        description != undefined ?this.description=description: this.description="";
+        amount != undefined ?this.amount=amount: this.amount=0;
+        note != undefined ?this.note=note: this.note="";
+        _type != undefined ?this._type=_type: this._type="";
+        _date != undefined ?this._date=_date: this._date="";
     }
 }

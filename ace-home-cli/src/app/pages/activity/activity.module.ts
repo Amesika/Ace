@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ActivityListComponent } from './activity-list/activity-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ActivityFormComponent } from './activity-form/activity-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +19,8 @@ import { ActivityFormComponent } from './activity-form/activity-form.component';
   imports: [
     BrowserModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     ActivityRoutingModule,
     SharedModule,
   ]
