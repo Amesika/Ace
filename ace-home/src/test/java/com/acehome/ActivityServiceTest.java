@@ -56,6 +56,16 @@ public class ActivityServiceTest {
         assertEquals(expectedSize,activities.size());
     }
 
+    
+    // Test List Between Two Date
+    @Test
+    void getListBetweenTwoDateByTypeTest() {
+        List<ActivityDTO> activities;
+        activities = actSrv.listActivityType("2020-01-01","2020-12-31","depense");
+        int expectedSize =  1;
+        assertEquals(expectedSize,activities.size());
+    }
+
     // Create Activity
     @Test
     void createActivityTest() {
