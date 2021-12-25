@@ -4,8 +4,8 @@ executors:
       - image: 'cimg/openjdk:11.0'
       - image: circleci/postgres:9.6-alpine
         auth:
-          username: acehome
-          password: password  
+          username: amesika
+          password:  $DOCKERHUB_PASSWORD  
         environment:
           POSTGRES_USER: acehome
           POSTGRES_PASSWORD: password
