@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
+    "build:img": "npm run build && docker build -t amesika/ace-home-cli:latest .",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
