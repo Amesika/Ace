@@ -25,14 +25,6 @@ jobs:
             paths:
                 - node_modules
 
-        - run:
-            name: Testing
-            command: npm run test -- --no-watch --no-progess --browsers=ChromeHeadlessCI
-
-        - run:
-            name: End to End Test
-            command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
-
 workflows:
   cli_workflow:
     jobs:
