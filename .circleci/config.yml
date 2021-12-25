@@ -1,0 +1,47 @@
+version: 2.1
+
+jobs:
+  test-cli:
+    working_directory: ~/ace-home-cli
+    docker:
+        - image: circleci/node:10-browsers
+    steps:
+        - checkout
+        
+        - run:
+            name: Show current branch
+            command: echo ${CIRCLE_BRANCH}
+        - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+
+        - run:
+            name: Install local dependencies
+            command: npm install
+        
+        - save_cache:
+            key: v1-dependencies-{{ checksum "package-lock.json" }}
+            paths:
+                - node_modules
+        
+        - run:
+            name: Linting
+            command: npm run lint
+
+        - run:
+            name: Testing
+            command: npm run test -- --no-watch --no-progess --browsers=ChromeHeadlessCI
+
+        - run:
+            name: End to End Test
+            command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+
+workflows:
+  cli_workflow:
+    jobs:
+    - test-cli:
+        filters:
+            branches:
+                only:
+                    - dev-cli
