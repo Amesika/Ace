@@ -23,6 +23,9 @@ jobs:
             name: Wait Test db
             command: dockerize -wait tcp://localhost:5432 -timeout 1m
         - run:
+            name: Ls
+            command: ls -a
+        - run:
             name: Restore Backup
             command: pwd
 
