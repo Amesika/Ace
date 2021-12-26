@@ -11,14 +11,9 @@ jobs:
 
       - image: circleci/postgres:9.6.2-alpine
         environment:
-          POSTGRES_USER: spring-boot-user
-          POSTGRES_DB: blog
-          POSTGRES_PASSWORD: spring-boot-user
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+          POSTGRES_USER: acehome
+          POSTGRES_DB: acehome-db
+          POSTGRES_PASSWORD: password
 
     working_directory: ~/ace-home
 
@@ -41,8 +36,12 @@ jobs:
 
       - save_cache:
           paths:
-            - ~/.mvn
+            - ~/ace-home/ace-home/.mvn
           key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run:
           name: Wait for DB
