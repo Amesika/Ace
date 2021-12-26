@@ -3,6 +3,14 @@ executors:
   dev-api:
     docker:
       - image: cimg/openjdk:8.0.312
+      - image: circleci/postgres:9.6-alpine
+        auth:
+          username: amesika
+          password:  $DOCKERHUB_PASSWORD
+        environment:
+          POSTGRES_USER: acehome
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: acehome-db
 
 orbs:
   maven: circleci/maven@1.2.0
