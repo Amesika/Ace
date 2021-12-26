@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/ace-home
     docker:
-      - image: circleci/maven@1.2.0
+      - image: maven:3.5.0-jdk-8
       - image: postgres:9.6.2-alpine
         auth:
           username: amesika
