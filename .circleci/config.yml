@@ -37,11 +37,11 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: gradle dependencies
+      - run: mvn clean install
 
       - save_cache:
           paths:
-            - ~/.gradle
+            - ~/.mvn
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       - run:
@@ -49,4 +49,4 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # run tests!
-      - run: gradle test
+      - run: mvn test
