@@ -25,7 +25,7 @@ jobs:
             command: dockerize -wait tcp://localhost:5432 -timeout 1m
         - run:
             name: Ls
-            command: ls -a ace-home-docker/db
+            command: sudo service postgresql restart
         - run:
             name: Restore Backup
             command: psql -U acehome < ace-home-docker/db/backupTest
