@@ -3,7 +3,7 @@ executors:
   dev-api:
     docker:
       - image: cimg/openjdk:8.0.312
-      - image: circleci/postgres:9.6-alpine
+      - image: postgres
         auth:
           username: amesika
           password:  $DOCKERHUB_PASSWORD
