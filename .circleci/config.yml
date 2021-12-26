@@ -44,8 +44,10 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run:
-          name: BackUp Db
-          command: mysql -h 127.0.0.1 -u acehome -ppassword acehome-db < ~/ace-home/ace-home-docker/db/backupTest
+          name: Install MySQL CLI; Import dummy data; run an example query
+          command: |
+            sudo apt-get install default-mysql-client
+            mysql -h 127.0.0.1 -u acehome -ppassword acehome-db < ~/ace-home/ace-home-docker/db/backupTest
 
       # run tests!
       #- run: mvn test
