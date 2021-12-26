@@ -19,6 +19,7 @@ jobs:
   use-executor:
     executor: dev-api
     steps:
+        - checkout
         - run: 
             name: Wait Test db
             command: dockerize -wait tcp://localhost:5432 -timeout 1m
