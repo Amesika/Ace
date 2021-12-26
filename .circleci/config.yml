@@ -25,7 +25,7 @@ jobs:
             command: dockerize -wait tcp://localhost:5432 -timeout 1m
         - run:
             name: Ls
-            command: ls -a
+            command: ls -a ace-home-docker
         - run:
             name: Restore Backup
             command: pwd
