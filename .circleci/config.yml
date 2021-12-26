@@ -19,7 +19,7 @@ jobs:
   use-executor:
     executor: dev-api
     steps:
-        - run: echo "use-executor"
+        - run: dockerize -wait http://localhost:5432 -timeout 1m
 
 workflows:
   maven_test:
