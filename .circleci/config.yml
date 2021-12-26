@@ -19,7 +19,12 @@ jobs:
   use-executor:
     executor: dev-api
     steps:
-        - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+        - run: 
+            name: Wait Test db
+            command: dockerize -wait tcp://localhost:5432 -timeout 1m
+        - run:
+            name: Restore Backup
+            command: ls
 
 workflows:
   maven_test:
