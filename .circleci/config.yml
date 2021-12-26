@@ -3,14 +3,7 @@ executors:
   dev-api:
     docker:
       - image: cimg/openjdk:8.0.312
-      - image: postgres
-        auth:
-          username: amesika
-          password:  $DOCKERHUB_PASSWORD
-        environment:
-          POSTGRES_USER: acehome
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: acehome-db
+      - image: cimg/postgres:14.0.0      
 
 orbs:
   maven: circleci/maven@1.2.0
@@ -24,11 +17,11 @@ jobs:
             name: Wait Test db
             command: dockerize -wait tcp://localhost:5432 -timeout 1m
         - run:
+            name: Ls
+            command: psql ;
+        - run:
             name: Restore Backup
             command: pg_restore -h localhost -p 5432 -d acehome-db -U acehome < ace-home-docker/db/backupTest 
-        - run:
-            name: Ls
-            command: psql  -h localhost -d acehome-db -U acehome Select * from activity;
         - run:
             name: Select
             command: Select * from activity
