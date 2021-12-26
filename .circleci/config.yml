@@ -24,11 +24,11 @@ jobs:
             name: Wait Test db
             command: dockerize -wait tcp://localhost:5432 -timeout 1m
         - run:
-            name: Ls
-            command: ls -a ace-home-docker/db
-        - run:
             name: Restore Backup
             command: pg_restore -h localhost -p 5432 -d acehome-db -U acehome < ace-home-docker/db/backupTest 
+        - run:
+            name: Ls
+            command: psql -h localhost -p 5432 -d acehome-db -U acehome; SELECT * FROM activity;
 
 workflows:
   maven_test:
