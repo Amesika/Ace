@@ -28,7 +28,7 @@ jobs:
             command: pg_restore -h localhost -p 5432 -d acehome-db -U acehome < ace-home-docker/db/backupTest 
         - run:
             name: Ls
-            command: psql  \l
+            command: psql  -h localhost -d acehome-db -U acehome \l
 
 workflows:
   maven_test:
