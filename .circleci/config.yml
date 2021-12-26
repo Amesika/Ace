@@ -10,10 +10,9 @@ executors:
           POSTGRES_USER: acehome
           POSTGRES_PASSWORD: password
           POSTGRES_DB: acehome-db
-    steps:
-      - run:
-            name: ls
-            command: ls
+        - run:
+              name: ls
+              command: ls
 orbs:
   maven: circleci/maven@1.2.0
 version: 2.1
