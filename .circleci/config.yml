@@ -32,7 +32,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: cd ace-home && mvn clean install
+      - run: cd ace-home && mvn clean package -Dmaven.test.skip
 
       - save_cache:
           paths:
