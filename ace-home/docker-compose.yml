@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+
+  # Data base 
+  db:
+    image: postgres
+    networks:
+      - backend
+    ports:
+      - "26000:5432"
+    environment:
+      POSTGRES_USER: acehome
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: acehome-db
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  # server
+  server:
+    image: amesika/ace-home:latest
+    links:
+      - db
+    depends_on:
+      - db
+    restart: always
+    ports:
+      #- "28080:8080"
+      - "8080:8080"
+    networks:
+      - backend
+      - frontend
+  
+   # client
+  cli:
+    image: amesika/ace-home-cli:latest
+    depends_on:
+      - server
+    restart: always
+    ports:
+      - "5500:80"
+    networks:
+      - frontend
+
+networks:
+  backend:
+  frontend:
+
+volumes:
+  data:
+  

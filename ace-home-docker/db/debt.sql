@@ -1,0 +1,614 @@
+DROP TABLE IF EXISTS "debt";
+
+CREATE TABLE "debt" (
+  id SERIAL PRIMARY KEY,
+  name varchar(255) default NULL,
+  description varchar(255) default NULL,
+  creditor_name varchar(255) default NULL,
+  init_amount integer NULL,
+  current_amount integer NULL,
+  payment_amount integer NULL,
+  rate integer NULL,
+  _delete boolean NOT NULL DEFAULT false
+);
+
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Hope Burnett','Leo Carver','Dalton Gallagher',7287,2734,500,2,True),
+  ('Imani Spence','Eugenia Simon','Rudyard Delaney',9543,4767,500,8,False),
+  ('Freya Larsen','Leonard Faulkner','Patience Cochran',5736,4529,500,3,False),
+  ('Colette Joyner','Jesse Herrera','Chelsea Valenzuela',5863,3289,500,6,False),
+  ('Jonah Blevins','Natalie Riddle','Dustin Ortega',5835,2232,500,8,True),
+  ('Buckminster Vinson','Sylvester Cote','Clio Conley',9173,1296,500,3,True),
+  ('Haley Smith','Martha Dale','Jamalia Alvarez',6312,2594,500,1,False),
+  ('Xyla Stevens','Hilary Mason','Quamar Tillman',8225,4569,500,8,False),
+  ('Maite Booker','Petra Carney','Amber Snider',8019,3726,500,5,True),
+  ('Jolie Shaw','Sylvia Duffy','Michael Rhodes',6051,4771,500,0,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Dillon Sullivan','Walker Rose','Kaseem Gilbert',9307,3137,500,6,False),
+  ('Zena Larson','Winifred Orr','Scarlett Harmon',7518,2398,500,2,False),
+  ('Miranda Phillips','Aaron Horn','Brett Hawkins',5548,3798,500,8,True),
+  ('Iliana Johnston','Scarlett Pitts','Mechelle Weber',5442,1801,500,3,True),
+  ('Dane Mcclain','Brody Edwards','Joan Fields',9478,3331,500,5,False),
+  ('Kennedy Nunez','Lars Glenn','Amela Taylor',8044,3346,500,0,True),
+  ('Ira Snider','Kermit Meyers','Gavin Pruitt',9853,2278,500,2,True),
+  ('Blake Stuart','Gannon Abbott','Candice Richardson',7701,4263,500,4,False),
+  ('Dale Lara','Hedy Morgan','Kenneth Navarro',9871,4699,500,2,False),
+  ('Hollee Reeves','Hedley Snyder','Ivor French',8753,1071,500,3,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Yen Mcleod','Xander Mcfarland','Camilla Bradshaw',5484,1833,500,1,False),
+  ('Shelley Olsen','Iris Harrington','Adrienne Park',8807,1144,500,0,False),
+  ('Mikayla Walton','Mechelle Lewis','Natalie Foster',5897,3528,500,4,False),
+  ('Kibo Frederick','Christian Monroe','Wade Horton',5203,1213,500,7,False),
+  ('Derek Clayton','Amos Donaldson','Lydia Avila',5385,1057,500,5,False),
+  ('Luke Edwards','Mona Benson','Xenos Berger',9251,1881,500,9,False),
+  ('Minerva Bean','Sasha Tran','Keane Huffman',5095,4739,500,7,False),
+  ('Murphy Yates','Mari Strickland','Yeo Walton',6417,4649,500,3,True),
+  ('Jasmine Norris','Brandon Witt','Evelyn Hendrix',5878,3830,500,5,False),
+  ('Dai Mcconnell','Aspen Carey','Joshua Jackson',6796,1047,500,2,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Tanek Albert','Clinton Steele','Slade Richmond',6740,2187,500,7,False),
+  ('Adam Padilla','Lana Espinoza','Tanek Odom',5386,4952,500,0,True),
+  ('Lee Powers','Jennifer Peterson','Wallace Peck',8038,4148,500,7,True),
+  ('Morgan Holt','Whitney Bowman','Quail Burris',9218,4609,500,7,False),
+  ('Channing Craig','Desiree Gates','Honorato Hampton',5275,3418,500,10,True),
+  ('Cruz Oneal','Amela Terrell','Kessie Burris',8280,3821,500,9,True),
+  ('Keane Trujillo','Mannix Richard','Grady Shields',5210,4566,500,3,False),
+  ('Olympia Montgomery','Gannon Tran','Diana Long',8233,3930,500,5,False),
+  ('Kirestin Montoya','Veda Shepard','Duncan Knapp',7508,1895,500,1,False),
+  ('Ivor Patrick','Tanek Oliver','Camilla Summers',6422,1631,500,1,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Gloria Decker','Galena Lancaster','Colton Joyner',9427,4081,500,5,True),
+  ('Hakeem Cote','Sawyer Vang','Rebecca Grimes',7621,1354,500,1,True),
+  ('Deborah Arnold','Edan Strickland','Scott Hardin',6572,2271,500,6,False),
+  ('Cole Matthews','Melanie Good','Otto Stevens',6678,3159,500,1,False),
+  ('Malachi Leach','Lysandra Finch','Nero Townsend',6736,3420,500,1,False),
+  ('Cheryl English','Norman Gregory','Jameson Shepard',9361,4866,500,0,False),
+  ('Lucas Dickerson','Indigo Bennett','Brandon Mcgowan',6259,4697,500,3,True),
+  ('Clayton Goodwin','Raphael Barton','Alice Eaton',9335,3333,500,7,False),
+  ('Lee Cochran','Sylvester Myers','Basia Pace',5411,1896,500,3,False),
+  ('Hector Morgan','Jeanette Wong','Herrod Booker',8170,4174,500,10,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Oliver Hebert','Doris Cantrell','Margaret Arnold',9536,2747,500,7,False),
+  ('Jada Morris','Xander Gonzalez','Lee Burks',5927,1853,500,5,False),
+  ('Audra Burns','Kevyn Lindsay','Peter Wallace',7093,2616,500,2,False),
+  ('Ezra Mcfadden','Acton Giles','Virginia Howe',8105,2466,500,1,False),
+  ('Isadora Little','Tyrone Jarvis','Melanie Graves',9775,4611,500,4,True),
+  ('Rebekah Lynch','Nevada Goodman','Josephine Hendricks',6737,4535,500,7,True),
+  ('Grady Gillespie','Orla Lancaster','Walter Gonzalez',8670,2362,500,2,True),
+  ('Desirae Chase','Garth Cole','Sandra Moody',5288,3453,500,7,True),
+  ('Lila Juarez','Reagan Love','Graham Nunez',5774,4344,500,7,False),
+  ('Hu Kelley','Clementine Whitaker','Beverly Hicks',9270,2027,500,9,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Ira Mcgee','Ahmed Blair','Preston Black',6430,4039,500,4,False),
+  ('Maggie Crosby','Colette Robinson','Paul Kinney',7673,4844,500,4,False),
+  ('Upton Mendoza','Angelica Booth','Yuri Craft',5221,4023,500,6,False),
+  ('Abra Little','Abra Phelps','Justin Hubbard',7856,1541,500,5,False),
+  ('Knox Sosa','Erica Hurley','Theodore Mayer',5425,3826,500,5,False),
+  ('Quamar Barton','Leandra Merrill','Maile Ewing',8417,3884,500,7,True),
+  ('Angela Mack','Leah Walton','Dacey Horton',8892,2691,500,6,True),
+  ('Joelle Moore','Drake Brooks','Fredericka Riddle',5460,3630,500,0,False),
+  ('Derek Erickson','Herrod Vazquez','Axel Perkins',7141,1522,500,6,False),
+  ('Nora Dixon','Yasir Mullen','Barclay Freeman',5379,4473,500,4,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Peter Mccarty','Kibo Hanson','Brooke Donovan',8556,2283,500,3,False),
+  ('Harlan Coffey','Jada Glass','Wyatt Rutledge',6023,3886,500,1,True),
+  ('Ruth Malone','Stone Mercado','Gregory Steele',8567,1417,500,7,True),
+  ('Jin Frank','Shay Baker','Haley Ellison',6156,3551,500,9,False),
+  ('Ferris Hayden','Alexander Young','Odysseus Beasley',7660,4119,500,8,True),
+  ('Heidi Ochoa','Jerry Barr','September Joseph',9779,3958,500,0,False),
+  ('Dante Vaughn','Rhoda Stein','Jillian Howell',5611,1258,500,9,False),
+  ('Jared Pena','Chancellor Smith','Jin Dillard',8901,3507,500,5,False),
+  ('Lee Hamilton','Regan Townsend','Davis Sharp',6464,1608,500,9,True),
+  ('Anastasia Meyer','Elmo Mayer','Cameran Whitney',6249,4773,500,7,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Victoria Berger','Xandra Matthews','Jordan Hodge',5991,4026,500,10,True),
+  ('Logan Harrell','Melodie Petty','Frances Harris',8943,2950,500,3,True),
+  ('Amaya Sutton','Murphy Horne','Priscilla Santana',5226,3228,500,8,True),
+  ('Daryl Hart','Eve Cherry','Andrew Peck',6535,2805,500,4,True),
+  ('Elton Pena','Oleg Koch','Brian Garrett',6811,1022,500,5,True),
+  ('Quinn Shields','Nora Mathis','Breanna Coffey',8622,3593,500,8,False),
+  ('Reese Drake','Maia Jarvis','Daria Mcdonald',5171,2495,500,1,True),
+  ('Haley Wilder','Kato Collins','Zeus Miles',6920,1696,500,4,True),
+  ('Mollie Dillard','Darius Hansen','Nola Newton',9787,2566,500,5,True),
+  ('Chandler Grimes','Leonard Holder','Stuart Cross',6745,1673,500,4,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Lacey Nieves','Deacon Watts','Veda Henson',5650,4909,500,7,True),
+  ('Phyllis Short','Fulton Zimmerman','Savannah Cochran',6290,2643,500,4,True),
+  ('Morgan Bell','April Fisher','Troy Navarro',8927,1038,500,7,True),
+  ('Claudia Christian','Charles Colon','Lev Donovan',6645,4579,500,5,False),
+  ('Freya Dyer','Pearl Galloway','Tad Page',9696,3281,500,5,True),
+  ('Mark Moon','Nelle Cotton','Hyacinth Hahn',6773,2590,500,9,True),
+  ('Jade Bass','Leah Sweeney','Donna Sellers',6970,1474,500,7,True),
+  ('Hiram Hayes','Laurel Swanson','Samuel Ward',8530,3712,500,3,False),
+  ('Jane Mccall','Walker Lancaster','Gregory Goodwin',5953,2331,500,2,False),
+  ('Otto Chang','Gwendolyn Grant','Ainsley Manning',8436,1510,500,8,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Sean Webster','Jessamine Clay','Cherokee Bolton',9533,4710,500,6,False),
+  ('Amber Maynard','Ryan Riggs','Cassidy Bartlett',9408,2034,500,6,False),
+  ('Christen Dunn','Carl Dennis','Camden Chaney',5192,2050,500,4,False),
+  ('Paloma Wilder','Jacqueline Vance','Jael Hernandez',7429,3351,500,6,False),
+  ('Preston Spears','Chaim Moreno','Carter Kirby',8150,4450,500,10,True),
+  ('Amity Vaughan','Samuel Gonzales','Zena Padilla',9316,1930,500,4,False),
+  ('Nasim Stanley','Oren Rice','Colleen Silva',8926,1176,500,7,False),
+  ('Chloe Welch','Sean Rutledge','Teagan Cortez',8123,2457,500,1,False),
+  ('Victor Hebert','Kylie Collier','Yolanda Hatfield',7887,2556,500,7,True),
+  ('Cailin Simmons','Clayton Santiago','Germane Horton',8721,3545,500,7,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Regina Jenkins','Tasha Steele','Clayton Wolf',7968,4604,500,4,True),
+  ('Kelly Payne','Isaac Erickson','Jane Romero',7860,4114,500,0,True),
+  ('Joy Whitley','Emi Lee','Armando Armstrong',8020,1974,500,1,False),
+  ('Mollie Conrad','Dante Estrada','Eleanor Stark',6901,1744,500,4,True),
+  ('Gannon Edwards','Meredith Bridges','Craig Holland',6549,2371,500,0,True),
+  ('Piper Greene','Nasim Church','Natalie Chambers',9166,3715,500,10,True),
+  ('Armand Bass','Holmes Bright','Michelle Solomon',5883,4320,500,4,True),
+  ('Vivian Adams','Camilla Stafford','Stewart Stanley',9169,3379,500,6,True),
+  ('Josiah Wong','Troy Cunningham','Evan Mcdonald',9098,1309,500,8,True),
+  ('Davis Cantrell','Macaulay Stanton','Jason Powell',8158,2905,500,1,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Wyoming Garrison','Genevieve Dominguez','Kiayada Sullivan',9586,1289,500,9,False),
+  ('Penelope Porter','Teegan Cline','Marah Hendricks',9613,1968,500,4,False),
+  ('Forrest Barlow','Tad Conway','Linda Murphy',5611,3959,500,4,False),
+  ('Abdul Park','Kibo Vincent','Tyrone Petty',5493,1677,500,7,False),
+  ('Bryar Santiago','Rajah Young','Jakeem Mack',9243,1952,500,6,True),
+  ('Carolyn Mckenzie','Paloma Alvarez','Rinah Hensley',7127,2537,500,4,True),
+  ('Lars Stone','Cairo Hatfield','Vanna Fuller',9394,4307,500,7,False),
+  ('Ava Cherry','Xander Olson','Michael Holder',9479,1822,500,7,False),
+  ('Noelle Garza','Darrel Velez','Forrest Valencia',9417,1846,500,3,True),
+  ('Griffith Cummings','Garrett Neal','Brett O''donnell',7827,3646,500,3,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Holmes Ballard','Macaulay Anderson','Vera Fry',6732,3610,500,9,False),
+  ('Emma Byers','Asher Ewing','Cadman Burgess',8689,4180,500,5,False),
+  ('Hop Hays','Suki Lowe','Vanna Sullivan',7878,4848,500,9,True),
+  ('Myles Middleton','Noel Pierce','Courtney Parks',9563,4380,500,8,False),
+  ('Yuli Cooley','Germane Joyner','Isabella Terrell',7091,1206,500,0,True),
+  ('Irma Robbins','Cassidy Holden','Cheyenne Shepard',6503,3831,500,2,False),
+  ('Wesley Gross','Solomon Jacobs','Shelley Gordon',7582,3581,500,10,False),
+  ('Keegan Hart','Castor Massey','Christopher Meadows',5979,4375,500,8,True),
+  ('Otto Bullock','Hamilton Grimes','Zachery Bruce',7160,2222,500,1,True),
+  ('Olivia Cline','Nathaniel Robertson','Melanie Cooke',6107,2025,500,6,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Boris Castillo','Sopoline Clark','Scarlet Hartman',6214,4047,500,10,False),
+  ('Halla Henry','Jocelyn Downs','Jaime Mccoy',7622,1029,500,4,False),
+  ('Jessica Aguirre','Winter Davis','Gareth Stephenson',5143,4026,500,5,False),
+  ('Zachary Howe','Fay Ayers','Isaiah Coleman',5430,4264,500,3,False),
+  ('Fletcher Newman','George Ewing','Sheila Walker',9950,3918,500,2,True),
+  ('Justine Park','Hector Carr','Carol Parker',7778,3748,500,8,True),
+  ('Whilemina Bender','Rinah Abbott','Zahir Porter',8010,2590,500,6,False),
+  ('Mikayla Cohen','Elton Terry','Rudyard Wheeler',5125,1630,500,4,True),
+  ('Brynne Logan','Ainsley Vargas','Baker Houston',8153,2661,500,6,False),
+  ('Xena Fulton','Winter Barker','Gareth Pittman',9518,4854,500,5,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('John Coleman','Madison Monroe','Jasmine Hayes',7692,2992,500,8,False),
+  ('Bree Matthews','Michael Dalton','Lillian Foreman',9833,1109,500,8,True),
+  ('Dara Frye','Dominic Peters','Ryan Schwartz',8670,3093,500,2,False),
+  ('Silas Haney','Nora Montgomery','Flynn Russell',9321,2279,500,4,True),
+  ('Rebecca Day','Donovan Stanton','Felix Cantrell',9355,4691,500,6,True),
+  ('Hillary Diaz','Perry Hatfield','Harper Galloway',8383,4738,500,1,False),
+  ('Rosalyn Taylor','Lila Warner','Janna Yates',6689,3780,500,9,True),
+  ('Ursula Fuller','Kelsey Carroll','Olga Strickland',5936,3487,500,8,True),
+  ('Shafira Hyde','Vielka Haynes','Noble Vinson',7531,4641,500,4,True),
+  ('Ursula Key','Davis Weber','Tatyana Reid',5418,2609,500,6,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Hedley Carroll','Jermaine Anderson','Jakeem Hobbs',6726,3284,500,1,True),
+  ('Clarke York','Clayton Tucker','Naida Bernard',8429,4853,500,1,True),
+  ('Henry Hebert','Carter Lawson','Rinah Walton',5388,2999,500,1,True),
+  ('Bryar Rosa','Shannon Jenkins','Jin Stokes',8716,2203,500,4,True),
+  ('Dominic Lester','Veronica Knight','Anthony Gardner',5334,3710,500,3,True),
+  ('Price Meyers','Jerry Dejesus','Jolene Wolfe',9577,2373,500,4,False),
+  ('Zenia Alford','Sydney Webster','Bruno Baird',7732,3149,500,0,True),
+  ('Ryan Terry','Curran Spencer','Desirae Jackson',6370,4602,500,4,True),
+  ('Veronica Livingston','Julian Dyer','Tallulah Brennan',9712,4795,500,9,True),
+  ('Jescie Page','Lev Leonard','Aimee Meadows',5467,2201,500,7,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Branden Santana','Hayes Stanton','Gray Leon',8819,4618,500,9,True),
+  ('Beverly Wolf','Chaim Carney','Anne Beck',8059,4440,500,2,False),
+  ('Kelsie Kemp','Jared Roberts','Prescott Schwartz',6691,1068,500,5,True),
+  ('Anika Blevins','Julian Galloway','Audrey Hewitt',7691,2702,500,4,True),
+  ('Yeo Houston','Carlos Clements','Yoko Hurst',7251,3553,500,2,True),
+  ('Lionel Farley','Quinlan Reid','Teegan Freeman',5551,1239,500,2,False),
+  ('Murphy Buchanan','Brent Mosley','Nash Stephens',7747,2780,500,7,False),
+  ('Chaim Hansen','Ginger Lloyd','Victoria Hayes',9828,2951,500,5,True),
+  ('Palmer James','Brenda Franklin','Blossom Foley',6895,2338,500,0,True),
+  ('Oleg Rios','Blake Mckenzie','Molly Le',9441,4080,500,1,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Dominic Shields','Connor Middleton','Cadman Ayala',6047,4209,500,4,True),
+  ('Shelley Flynn','Knox Gamble','Shaeleigh Rios',9751,3582,500,3,False),
+  ('Elijah Fletcher','Raymond Thompson','Hayes Berry',6735,4933,500,2,False),
+  ('Armando Hopper','Cody Vargas','Aurora Duncan',9936,3565,500,3,True),
+  ('Lara Ware','Herrod Garrison','Eaton Dotson',9028,1142,500,8,True),
+  ('Hermione Henson','Oleg Hunter','Kyra Acosta',5423,3653,500,0,True),
+  ('Hunter Grant','Heather Mejia','Ayanna Perez',5445,3091,500,4,True),
+  ('Macaulay Gross','Kristen Mueller','Angela Hoover',6883,1498,500,7,True),
+  ('Jacqueline Kramer','Olympia Chase','Phillip Irwin',5874,2966,500,4,True),
+  ('Hadassah Bush','Brianna Landry','Ignatius Torres',7919,2379,500,7,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Felix Lindsey','Margaret Shepherd','Nash Love',8917,3163,500,1,True),
+  ('Dante Harding','Wayne Mcleod','Kiara Vang',5796,3822,500,2,True),
+  ('Bertha Tucker','Sylvia Mercado','Dylan Gibbs',8508,3256,500,10,True),
+  ('Ferris Knapp','Danielle Brooks','Gillian Cobb',8315,2805,500,2,False),
+  ('Odysseus Gonzalez','Philip Livingston','Derek O''connor',5184,3711,500,4,False),
+  ('Wendy Crosby','Oleg Puckett','Zena Odom',9717,3967,500,5,True),
+  ('Harlan Salas','Paki Carlson','Piper Frazier',7855,2211,500,9,False),
+  ('Patricia Buckner','Travis Shaffer','Griffith Gibbs',9405,1830,500,7,False),
+  ('Sawyer Robbins','Sawyer Sosa','Eagan Le',9733,1402,500,2,False),
+  ('Maisie Paul','Margaret Oneil','Kirsten Harding',5249,1572,500,3,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Chaim Atkinson','Courtney Compton','Rhona Gaines',6707,4445,500,1,True),
+  ('Alan Beasley','Abraham Gill','Zeus Sheppard',7778,2128,500,7,True),
+  ('Bethany Mayo','Kevyn Lucas','Hilel Huff',5807,4763,500,1,False),
+  ('Jorden Rojas','Veronica Ballard','Aiko Morales',6663,1449,500,8,False),
+  ('Bryar Odom','Carson Christian','Ralph Dunn',9590,2758,500,7,False),
+  ('Shay Curtis','Cody Patel','Ori Salinas',7117,3083,500,7,True),
+  ('Lee Welch','Lara Riddle','Brody Ferrell',8310,2403,500,1,False),
+  ('Frances Burgess','Signe Zamora','Orla Nelson',7505,3311,500,7,True),
+  ('Dahlia Travis','Colt Kirby','Mary Klein',5315,3709,500,7,False),
+  ('Veda Albert','Velma Dotson','Dillon Kane',6201,4947,500,8,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Dexter Fowler','Malachi Palmer','Hayley Parks',8980,4256,500,9,False),
+  ('Ayanna Byrd','Elmo Woods','George Molina',6277,1839,500,8,False),
+  ('Yardley Todd','Melinda Roberts','Tad Salazar',9606,2801,500,7,False),
+  ('Connor Park','Rose Whitfield','Shelly Larson',5522,3325,500,3,False),
+  ('Driscoll Levine','Blossom Brady','Caldwell Leach',7634,4147,500,4,False),
+  ('Kasper Hensley','Janna Carter','Phoebe Mcclure',9540,1322,500,4,False),
+  ('Keefe Leblanc','Maisie Byers','Ria Malone',7022,4390,500,2,True),
+  ('Maia Baxter','Jana Best','Forrest Middleton',5192,4762,500,5,True),
+  ('Travis Hoover','Ivy Page','Nathaniel Warner',5136,4355,500,3,True),
+  ('Len Bartlett','Mollie Cochran','Christian Carrillo',6352,2192,500,9,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Trevor Hewitt','Evan Pitts','Dai Moreno',7160,4259,500,5,True),
+  ('Timon Holman','Howard Hurst','Chanda Browning',5053,1165,500,4,True),
+  ('Daquan Peck','Hedley Gross','Signe Gaines',8788,1850,500,8,False),
+  ('Rahim Marks','Price Brock','Colin Ford',8073,4311,500,4,False),
+  ('Ariana Olsen','Leonard Rutledge','Keelie Warner',8922,1846,500,5,False),
+  ('Hanna Horne','Noble Chandler','Xenos Nicholson',6757,3164,500,5,True),
+  ('Illana Cook','Upton Newton','Ora Adams',9592,4452,500,7,False),
+  ('Gay Hensley','Tanisha Johnston','Kelly Haynes',9249,1722,500,9,True),
+  ('Gray Snider','Madeson Nelson','Leonard Morris',7708,2391,500,0,True),
+  ('Fritz House','Lacota Ball','Vanna Wolfe',8773,1030,500,3,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Chaney Contreras','Erasmus Mccormick','Jonas Poole',9602,4748,500,4,True),
+  ('Madonna Doyle','Tamara Larsen','Isaac Woods',8139,4908,500,5,True),
+  ('Uriah Watkins','Jelani Hubbard','Barbara Blevins',9344,1120,500,6,True),
+  ('Chiquita Mayo','Hiram Powers','Beck Ward',6794,4981,500,4,True),
+  ('Flavia Leblanc','Kameko Whitehead','Francesca Hester',5409,1409,500,9,False),
+  ('Cheyenne Moran','Minerva Whitney','Barrett Best',5766,4956,500,4,False),
+  ('Gwendolyn Schroeder','Fay Stephenson','Guy Ashley',6993,2903,500,6,False),
+  ('Cyrus Ramirez','Nelle Boyle','Benjamin Tate',5574,4470,500,7,False),
+  ('Emmanuel Lynn','Lucius Brown','Rebecca Phelps',6377,2338,500,3,True),
+  ('Darius Dunlap','Abraham Cooper','Haviva Dixon',8025,4938,500,9,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Althea Rutledge','Madeson Moss','Neville Marks',7829,1183,500,5,False),
+  ('Indira Parrish','Francis Floyd','Anastasia Edwards',6418,3002,500,5,True),
+  ('Stewart Henson','Buffy Mclean','Kirk Daniels',8953,1665,500,10,False),
+  ('Wang Dorsey','Kylynn Sanford','Genevieve Hansen',5373,1988,500,5,False),
+  ('Barry Morin','Jaime Herring','Adam Sloan',5107,2799,500,2,False),
+  ('Nehru Moses','Susan Dale','Fritz Rojas',9223,2117,500,7,False),
+  ('Kessie Banks','Jackson O''donnell','Cody Franklin',5165,1427,500,5,True),
+  ('Josiah Boyle','Carson Pittman','May Cortez',7024,4157,500,1,True),
+  ('Kiara Cameron','Nicholas Newman','Dorothy Lynn',8982,3675,500,6,True),
+  ('Camden Hansen','Amelia Mckenzie','Mariam Rios',5383,3667,500,5,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Edward Conner','Marsden Patel','Stone Barker',8399,3789,500,9,True),
+  ('Edan Gibbs','Karyn Conley','Rae Hays',7734,3758,500,8,False),
+  ('Candace Paul','Sebastian Ochoa','Jasper Mclean',9391,2228,500,8,True),
+  ('Buckminster Hutchinson','Xyla Gonzalez','Megan Barnett',7359,3221,500,1,True),
+  ('Raphael Guerrero','Leslie Bowers','Zia Booker',5574,2127,500,5,False),
+  ('Aidan Higgins','Marshall Hopper','Amal Frazier',7519,3032,500,7,False),
+  ('Melyssa Mendez','Sheila Mcconnell','Myles Kent',5279,3797,500,0,False),
+  ('Rigel Walters','Robert Robertson','Roth Logan',6200,2850,500,4,False),
+  ('Jasper Sims','Beverly King','Elaine Roberson',8608,4380,500,9,True),
+  ('Desiree Talley','Jessamine Parrish','Troy Riggs',9878,1167,500,5,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Harding Charles','Shellie Holder','Carolyn Ballard',9117,4266,500,10,True),
+  ('Cassady Daugherty','Octavius Wong','Isaiah Landry',9864,4004,500,1,False),
+  ('Raymond Vaughan','Kareem Alford','Darrel Hays',9103,1957,500,6,False),
+  ('Aimee Rush','Hamilton Thornton','Nash Garrett',9378,4113,500,4,False),
+  ('Chandler Townsend','Inez Forbes','Damian Mcmahon',8713,3288,500,7,False),
+  ('Alexa George','Candice Barnes','Victoria Price',6425,3532,500,5,False),
+  ('Zia Ford','Gregory Jordan','Branden Hopper',9446,4817,500,1,True),
+  ('Elliott Burch','Orla Gonzalez','Noelani Sparks',5712,4835,500,0,False),
+  ('Nora Walsh','Emma Buck','Michael Curry',5536,4089,500,6,False),
+  ('Summer O''Neill','Xena Reed','Amber Olson',6821,1104,500,9,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Cooper Weaver','Maggy Mcintyre','Quemby Drake',8737,3621,500,4,False),
+  ('Raymond Campos','Caesar Tucker','Vernon Ellis',6683,1654,500,8,False),
+  ('Raphael Acosta','Wyoming Gallegos','Charity Hunt',6579,2533,500,10,True),
+  ('Faith Spencer','Brett Stevenson','Mufutau Hancock',9777,1074,500,1,True),
+  ('Kylan Galloway','Jermaine Leblanc','Erasmus Bowman',6881,3443,500,5,True),
+  ('MacKensie Cleveland','Idona Olson','Cyrus Newman',9436,1182,500,7,True),
+  ('Stephen Robbins','Robin Brock','Paul Dennis',7521,2998,500,7,True),
+  ('Odette Park','Baxter Hawkins','Joelle Wise',9255,3816,500,2,True),
+  ('Kareem Oliver','Jacob Charles','Ross Foley',7957,4111,500,4,False),
+  ('Willa Burris','Shellie Mcclure','Aquila Foster',9194,1961,500,1,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Adele Bullock','Lionel Martinez','Raymond Woods',9263,1920,500,3,False),
+  ('Zorita Soto','Gisela Bennett','Liberty Sutton',7130,3521,500,1,True),
+  ('Tyrone Mccoy','Vladimir Klein','Irma Rogers',8398,2751,500,3,True),
+  ('Hasad Small','Zephania Jacobson','Zelenia Elliott',5745,2060,500,9,False),
+  ('Wing Glover','Justin Maxwell','Hiroko Gilbert',5998,4120,500,3,False),
+  ('Dacey Garza','Drew Cotton','Laurel Webster',6342,1791,500,1,False),
+  ('Petra Maxwell','Kim Horne','Kirk Lee',5220,1338,500,4,False),
+  ('Mechelle Herrera','Reuben Stevenson','Lionel Potter',8801,1986,500,2,True),
+  ('Inga Snow','Libby Sampson','Basil Herrera',5084,2987,500,1,False),
+  ('Indigo Richard','Stone Chen','Flavia Cantu',7301,3856,500,7,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Uta Cash','MacKenzie Bryant','Kane Brooks',5860,2250,500,9,False),
+  ('Illiana Serrano','Addison English','Byron Morrow',6778,3061,500,8,True),
+  ('Angelica Simmons','Grant Vazquez','Kellie Simpson',8874,2789,500,5,False),
+  ('Gemma Short','Jasmine Ware','Erica Mcintyre',9080,3675,500,7,False),
+  ('Finn Ruiz','Edward Welch','Keaton Hansen',8935,3630,500,1,False),
+  ('Herrod Horne','Brady Lindsey','Joseph Medina',8081,4214,500,2,True),
+  ('Dominique Martinez','Ebony Mccarthy','Vivien Vega',6774,2019,500,4,False),
+  ('Nevada Valdez','Naida Petersen','Nash Dorsey',8387,2388,500,1,True),
+  ('Grady Barnes','Lila Rodriquez','Raven Henderson',7005,3853,500,2,True),
+  ('Keely Davenport','Ciara Frazier','India Hart',8149,1870,500,7,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Maris Sweet','Rama Marshall','Troy Kennedy',7156,3141,500,5,False),
+  ('Chaney Stone','Tatiana Strong','Ali Langley',5301,4075,500,9,False),
+  ('Ebony Beck','Chadwick Roy','Veronica Vega',6767,3804,500,9,True),
+  ('Price Logan','Upton Hall','Vance Waters',5655,3710,500,1,True),
+  ('Quentin Briggs','Finn Macdonald','Fatima Cherry',7520,2597,500,1,False),
+  ('Jerome Morton','Isabella Lowery','Silas Mack',8770,1275,500,5,False),
+  ('Chelsea Sanchez','Shelby Joyce','Barbara Moore',9003,3343,500,1,False),
+  ('Erich Velez','Ian Foster','Price Shepherd',6771,3381,500,6,False),
+  ('Sydney Horne','Ulla Mcneil','Mason Fields',5310,1313,500,8,False),
+  ('Daryl Robles','Kevin Conway','Hashim Wade',6938,3567,500,6,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Dara Carrillo','Athena Vazquez','Cooper Boyer',7880,4877,500,6,True),
+  ('Honorato Medina','Allistair Molina','Mollie Elliott',8212,1481,500,5,True),
+  ('Brent Morton','Ishmael Mcfadden','Owen Hobbs',6131,3110,500,2,False),
+  ('Stacy Rutledge','Graiden Pate','Mohammad Rollins',6936,2792,500,6,True),
+  ('Barrett Winters','Linus Navarro','Jenna Wilson',9594,3741,500,6,False),
+  ('Kelsey Goodwin','Gil Barker','Chaney Meyer',5542,2418,500,7,False),
+  ('James Lang','Nell Turner','Curran Eaton',8319,3961,500,9,True),
+  ('Ronan Vasquez','Ifeoma Crawford','Kenneth Young',7907,2999,500,9,True),
+  ('Armand Maldonado','Karyn Carrillo','Alvin Hernandez',9558,2917,500,4,False),
+  ('Christen Charles','Allen Franks','Azalia Macias',6418,2382,500,8,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Aidan French','Charity Rowe','Moses Powell',6550,3612,500,2,False),
+  ('Meredith Duran','Harding Watson','Deanna Jimenez',7704,1568,500,3,True),
+  ('Marshall Moran','Kevin Stone','Kiayada Daniel',6892,4680,500,8,True),
+  ('Garrett Schwartz','Hilary Cherry','Jemima Barnes',6080,4669,500,10,True),
+  ('Brian Callahan','Rae Gentry','Rooney Navarro',8917,4244,500,6,True),
+  ('Shelly Terrell','Marsden Moore','Abel Albert',5585,4585,500,6,True),
+  ('Todd Cotton','Danielle Chan','Channing Cannon',8793,2819,500,5,True),
+  ('Octavius Stuart','Shoshana Boyer','Thane Glenn',6526,2616,500,2,True),
+  ('Dana Fitzgerald','Keith Chan','Marcia Roach',5357,2152,500,7,False),
+  ('Julian Sweet','Damon Small','Madaline Walters',5118,4310,500,4,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Aaron Wilder','Lynn Morrow','Amethyst Dorsey',7311,2223,500,3,True),
+  ('Nathan Kennedy','Preston Franklin','Raja Simon',8791,2344,500,7,True),
+  ('Marcia Jones','Fuller Orr','Amos Lambert',8174,2692,500,3,True),
+  ('Quemby Stephens','Uriel Wells','Brent Bradley',6135,1143,500,3,True),
+  ('Sade Mcbride','Blythe Hodge','Carter Merritt',9330,4221,500,1,False),
+  ('Aristotle Moon','Joy Weiss','Keegan Maldonado',7857,4423,500,3,True),
+  ('Colt Mann','Jael Harmon','Keefe Boyer',5243,1975,500,2,False),
+  ('Kasimir Frost','Jonas Lane','Ulysses Burns',7964,1301,500,6,False),
+  ('Alea Moody','Katelyn Newman','Ginger Salinas',7354,1409,500,7,False),
+  ('Myles Dotson','Ivory Spears','Lee Roy',8607,4653,500,9,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Linus Robles','Colton Shaffer','Glenna Hampton',5526,1468,500,8,True),
+  ('Jason Arnold','Lucian Stein','Leigh Delaney',9465,1160,500,10,True),
+  ('Axel Hickman','Wade Spears','Briar Ratliff',9879,1267,500,6,False),
+  ('Hope Scott','Eugenia Blevins','Tate Sanford',6004,1525,500,9,False),
+  ('Craig Crosby','Deacon Huffman','Gretchen Martin',7330,4804,500,1,False),
+  ('Colleen Jordan','Fay Flores','Paki Malone',9309,1201,500,3,True),
+  ('Priscilla Campbell','Signe Wall','Lillian Stark',5890,3754,500,3,False),
+  ('Barrett Nelson','Basia Juarez','Anne Gutierrez',6220,3622,500,1,False),
+  ('Chandler Higgins','Charles Sharpe','Flavia Holman',5501,3901,500,9,True),
+  ('Silas Hensley','Claire Owen','Len Shaw',7712,1259,500,9,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Blossom Mcknight','Erasmus Gilbert','Lucas Kidd',8817,2158,500,1,True),
+  ('Alexandra Lopez','Cleo Fox','Heather Daniels',5202,2300,500,0,False),
+  ('Abraham Maxwell','Kiayada Noble','Nichole Irwin',7173,1469,500,10,True),
+  ('Xenos Holcomb','Zephania Payne','Zenaida Watson',5783,1225,500,0,False),
+  ('Raya Armstrong','Dorothy Henry','Dacey Whitehead',9254,1486,500,2,True),
+  ('Gregory Hernandez','Finn Armstrong','Sybill Crawford',5790,2475,500,6,False),
+  ('Maggy Campos','Regina Bryant','Oscar Nieves',8117,2672,500,7,True),
+  ('Adara Golden','Cameron Lyons','Lane Leach',5669,4699,500,0,True),
+  ('Ruth Carter','Gretchen Woodard','Mikayla Webster',7172,4041,500,2,True),
+  ('Tatiana Cameron','Scarlett Hardy','Marsden Callahan',8340,2451,500,9,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Uriel Perez','Sylvester Hays','Anika Wilkins',9435,2731,500,5,True),
+  ('Kylynn Reid','Uta Robinson','Marny Craig',6337,3194,500,5,True),
+  ('Madeson Warren','Cameron Zimmerman','Marshall Durham',9753,1135,500,0,True),
+  ('Solomon Quinn','Aidan Kirk','Kameko Fischer',9618,2874,500,4,True),
+  ('Bo Vaughan','Simon Walls','Yardley Christian',8166,2436,500,3,True),
+  ('Carlos Shannon','Robert Moody','Jessamine Harrison',8288,1668,500,5,True),
+  ('Tiger Mcfadden','Jolie Paul','Inez Cash',5191,1758,500,6,True),
+  ('Jillian Mccoy','Irma Barr','Uta Vance',6359,3073,500,4,False),
+  ('Pearl Albert','Summer Hodge','Doris Lancaster',8016,3033,500,2,True),
+  ('Nina Lowe','Steel Wong','Rosalyn Allison',5928,2508,500,9,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Claudia Joyce','Eric Turner','Maya Bauer',8274,3789,500,10,False),
+  ('Jameson Irwin','Xandra Hendrix','Palmer Stephens',8385,1268,500,7,True),
+  ('Reagan Nixon','Meredith Roach','Kylynn Sanders',7717,1051,500,2,False),
+  ('Alyssa Fernandez','Karyn Wiggins','Scarlet Henson',7420,1829,500,7,False),
+  ('Sandra Spencer','Xanthus Hubbard','Isabelle Cobb',5738,2131,500,9,True),
+  ('Preston Cooper','Plato Booker','Samuel Potts',6534,1525,500,5,True),
+  ('Perry Jennings','Seth Douglas','Quyn Santiago',7602,3962,500,0,False),
+  ('Oleg Rowland','Irma Delaney','Kiayada Case',9026,2604,500,2,True),
+  ('Austin Goodman','Aquila Young','Chandler Pierce',8476,3759,500,3,False),
+  ('Abigail Bennett','Igor Ramirez','Pamela Kramer',7681,2666,500,3,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Lydia Compton','Alec Rodriguez','Travis Hancock',5622,2890,500,3,False),
+  ('Otto Newton','Iona Jensen','Ivory Walsh',6849,4428,500,9,True),
+  ('Paul Christian','Kane Gonzalez','Kitra Boyle',9460,4777,500,9,True),
+  ('Hamilton Albert','Jakeem Shepard','Nero Glass',8445,3149,500,2,False),
+  ('Neville Gibbs','Sheila Salas','Chester Albert',6946,4485,500,7,True),
+  ('Josiah Rowe','Xaviera Herrera','Marah Bean',7750,3719,500,3,True),
+  ('Kalia Allison','Cherokee Newman','Scott Navarro',9669,2217,500,4,True),
+  ('Guy Olson','Ignatius Middleton','Julie Nunez',5887,2158,500,2,False),
+  ('Heather Moran','Frances Knight','Damon Fitzgerald',7475,4378,500,4,True),
+  ('Nash Mcgee','Kelly Dominguez','Wayne Valdez',9985,3092,500,6,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Ray Dodson','Oren Carpenter','Basia Herman',7999,4283,500,4,False),
+  ('Hayfa Stewart','Cynthia Sharpe','Dorothy Griffin',5651,1936,500,3,False),
+  ('Malachi Villarreal','Kyle Alvarado','Kevin Sykes',9166,1777,500,3,False),
+  ('Denton Petty','Len Hammond','Castor Nguyen',7145,2618,500,4,True),
+  ('Farrah Chandler','Florence Delgado','Dale Wallace',9950,2333,500,7,False),
+  ('Octavius Morrison','Serina Farmer','Clio Shaffer',5092,3535,500,8,False),
+  ('Orlando Ortega','Merrill Pate','Lionel Workman',7358,2892,500,8,True),
+  ('Reed Mercado','Brittany Rodgers','Portia Snyder',5294,2982,500,2,True),
+  ('Nora Leonard','Naomi Pearson','Merrill Herman',9010,3884,500,8,True),
+  ('Tanya Marsh','Levi Cain','Herrod Stanley',7944,1317,500,8,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Quon Moran','Paki Frank','Hashim Kinney',8565,4224,500,3,False),
+  ('Joseph Delaney','Tanya Maldonado','Reece Underwood',9587,1864,500,4,False),
+  ('Sacha Maynard','Gail Marshall','Samantha Newman',6850,1910,500,4,True),
+  ('Halla Humphrey','Rudyard Griffin','Conan Albert',5621,2454,500,2,True),
+  ('Wade Lowery','Edan Wagner','Clayton Morse',5769,2517,500,8,True),
+  ('Salvador Griffith','Illana Torres','Brielle Herrera',6946,1585,500,6,True),
+  ('Kane Berg','Valentine Gould','Kennedy Carter',5229,3594,500,0,False),
+  ('Jamalia Bender','Kyle Yang','Vivien Manning',8148,2534,500,4,False),
+  ('Gregory Sullivan','Amery Berry','Dacey Ross',8771,4482,500,6,True),
+  ('Patricia Holden','Lionel Hensley','Gillian Poole',7142,2805,500,8,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Oliver Mathis','Barbara Dickson','Chester Velazquez',7806,1862,500,0,True),
+  ('Grant Gill','Arden Valdez','Mannix Durham',9947,1726,500,7,False),
+  ('Angelica Petersen','Suki Terrell','Yardley David',5938,3336,500,7,True),
+  ('Raymond Boyd','Jennifer Barron','Abel Petersen',6936,1840,500,9,False),
+  ('Medge Hurst','Inga Abbott','Farrah Suarez',8345,2525,500,4,False),
+  ('Halee Bailey','Grady Callahan','Judith Church',8154,3506,500,3,True),
+  ('Indira Greer','Quentin Shepherd','Cally Manning',7218,3444,500,1,False),
+  ('Charde West','Xavier Charles','Alden Rivas',6811,4641,500,9,False),
+  ('Hermione Roberts','Ashton Dixon','Fatima Ballard',5204,3424,500,4,False),
+  ('Amethyst Hurley','Grant Owens','Beck Benson',8774,2412,500,1,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Justin Oneil','Zorita Carter','Donovan Middleton',6723,1008,500,5,True),
+  ('Marah Leon','Yasir Hobbs','Malcolm Bradley',5990,4171,500,7,True),
+  ('Lacey Ortega','Uma Marshall','Nayda Higgins',6280,3326,500,2,True),
+  ('Rhonda Velasquez','Velma Romero','Evelyn Buchanan',9206,4596,500,2,False),
+  ('Yoshio Lang','Xander Glass','Alea Lawson',8328,3161,500,5,False),
+  ('Jade Donovan','Justina Long','Byron Haynes',6511,4774,500,5,False),
+  ('Tatum Bullock','Fiona Wallace','Pamela Thornton',7452,1366,500,3,False),
+  ('Hayfa Short','Christian Curry','Gemma Lopez',9937,3488,500,6,True),
+  ('Angela Bradshaw','Daphne Ray','Harriet Johns',6849,3749,500,3,True),
+  ('Xantha Marshall','Keiko May','Shelley Duke',8526,2744,500,0,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Sylvia Clayton','Amery Vang','Alexis Ortega',5391,2397,500,4,False),
+  ('Haviva Fuentes','Wang Sawyer','Graiden Vega',9798,4120,500,10,True),
+  ('Donna Juarez','Gillian Nolan','Zelda Carpenter',8324,1043,500,7,False),
+  ('Shea Decker','Bryar Whitaker','Sade Gibbs',8012,4203,500,5,False),
+  ('Burke Pratt','Daryl Stanley','Risa Ortiz',8151,1871,500,6,False),
+  ('Cadman Merritt','Cruz Solis','Jillian Love',5675,2113,500,6,True),
+  ('Montana Copeland','Athena Lowery','Amal Crawford',7334,3080,500,5,False),
+  ('Zoe Mclean','Jacqueline Leblanc','Simon Salas',9810,4923,500,1,True),
+  ('Adrienne Suarez','Amy Farley','Jermaine Morris',8389,4629,500,5,True),
+  ('Maxine Prince','Roanna Pruitt','Quynn Lowe',7743,1861,500,3,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Lacy Jarvis','Kylee Sampson','Willow Kramer',6904,4869,500,8,False),
+  ('Wesley Abbott','Uriah Randall','Berk Bradshaw',7331,3129,500,2,False),
+  ('Danielle Jacobson','Lamar Bauer','Zachary Gross',8601,2961,500,4,False),
+  ('Mari Sutton','Victoria Lane','Claudia Barron',7518,4550,500,8,False),
+  ('Harriet Dillard','Courtney Carney','Colette Galloway',9052,3732,500,6,False),
+  ('Gary Hurst','Jin Hammond','Catherine Fields',9425,1610,500,2,False),
+  ('Larissa Townsend','Elijah Gaines','Coby Maldonado',5729,4631,500,3,True),
+  ('Justin James','Lamar Dillon','Gisela Buckley',8101,4660,500,8,True),
+  ('Kirk Fletcher','Jarrod Patterson','Hadley Fischer',8725,2117,500,2,False),
+  ('Madison Powell','Mary Juarez','Barrett Snider',5462,2586,500,2,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Myles Frederick','Kiona Bright','Leah Jennings',7460,4951,500,2,True),
+  ('Tallulah Lyons','Brody Hudson','Ahmed Daniel',5774,3147,500,2,True),
+  ('Zeph Sheppard','Jerome Pacheco','Sonya Shaffer',7640,3323,500,9,True),
+  ('Meredith Patterson','Francis Burnett','Tad Gomez',6622,4095,500,1,False),
+  ('Geoffrey Mcgowan','Rose Jordan','Diana Craig',7330,2184,500,10,False),
+  ('Carlos Berger','Ima Britt','Curran Malone',9069,4378,500,7,False),
+  ('Christian Nelson','Talon Reed','Clinton Dillard',8979,4345,500,2,True),
+  ('Halee Casey','Howard Case','Hector Mcclain',8632,2857,500,5,False),
+  ('Joshua Rush','Galena Kane','Kaitlin Lucas',9698,4134,500,4,True),
+  ('Rowan Carver','Garth Guzman','Garth Cunningham',5389,2258,500,1,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Clio Tate','Uma Stanton','Hayes Wynn',5132,3971,500,8,True),
+  ('Barrett Espinoza','Chancellor Boyer','Eleanor Saunders',6709,4448,500,6,True),
+  ('Mikayla Wilkins','Rashad Mcdaniel','Idola Wilkerson',8373,1379,500,1,True),
+  ('Joel Dillard','Yasir Schwartz','Malachi Macias',8645,2812,500,9,False),
+  ('Chancellor Durham','Anthony Lewis','Hiram Conway',5685,1871,500,8,True),
+  ('Urielle Kemp','Barry Hayes','Tanya Foster',9924,2795,500,6,False),
+  ('Lucas Vance','Armand Benson','Katell Diaz',8966,3290,500,9,False),
+  ('Maia Hensley','Sandra Spears','Jordan Chase',8983,1368,500,3,False),
+  ('Tatum Lester','Tate Summers','Armando Cox',8002,2934,500,2,True),
+  ('Sheila Erickson','Erica Kramer','Jelani Fernandez',7838,4919,500,7,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Wing Allison','Blaze Wolfe','Summer Mccullough',7387,2081,500,10,False),
+  ('Demetrius Roth','Kiara Alexander','Amery Herring',7554,3929,500,9,True),
+  ('Grant Sutton','Declan Cochran','Carlos Anderson',7168,2423,500,9,False),
+  ('Ava Strickland','Basil Sanders','Elizabeth Mcknight',8264,3327,500,5,True),
+  ('Lawrence Burt','Lev Morin','Cameron Cruz',9894,3302,500,6,False),
+  ('Angela Dean','Porter Simon','Anthony Santos',9085,4677,500,1,True),
+  ('Louis Chandler','Walter Warren','Shelby Scott',9288,1806,500,3,True),
+  ('Helen Mckee','Andrew Mcdowell','Martina Sawyer',7104,1433,500,1,True),
+  ('Caryn Dalton','Francesca Mayer','Alyssa Gomez',9025,2990,500,6,False),
+  ('Xanthus Swanson','Rogan Perry','Althea Hines',7119,3365,500,10,True);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Selma Fitzgerald','Maxine Lambert','Adam Mayer',8567,4714,500,3,False),
+  ('Zephr Moran','Jason Burgess','Jerry Kinney',9615,4429,500,5,True),
+  ('Madeson Byrd','Isabelle Swanson','Silas Church',8615,1642,500,8,False),
+  ('Aline Woods','Howard Lynch','Guy Scott',6818,3083,500,2,True),
+  ('Breanna Chen','Stacy Clay','Nigel Delacruz',9699,4528,500,7,False),
+  ('Kaitlin Paul','Kylan Garza','Bianca Clay',9883,1782,500,0,True),
+  ('Odette Mccormick','Deacon Glenn','Nicholas Elliott',9058,1670,500,6,True),
+  ('Jocelyn William','Hope Cummings','Jane Hernandez',8626,2077,500,4,True),
+  ('Keelie Haynes','James Pratt','Bree Curtis',6726,2678,500,6,True),
+  ('Scott Vaughan','Tamara Dalton','Nasim Marshall',5581,3081,500,8,False);
+INSERT INTO debt (name,description,creditor_name,init_amount,current_amount,payment_amount,rate,_delete)
+VALUES
+  ('Zahir Goff','Joelle Garza','Reuben Cohen',6202,2886,500,9,True),
+  ('Beck Cohen','Rae Santiago','Jessica Malone',6315,4658,500,1,True),
+  ('Emmanuel Franklin','Jordan Anthony','Breanna Bowers',5970,2043,500,3,True),
+  ('Sopoline Carey','Talon Adams','Raymond Donovan',9550,3793,500,8,False),
+  ('Chancellor Gilliam','Danielle Grimes','Sage Simpson',7530,4910,500,3,False),
+  ('George Ross','Tara Lawson','Chaim Moses',8827,2251,500,5,False),
+  ('Marah Benson','Rogan Zimmerman','Melinda Frederick',6965,3032,500,4,True),
+  ('Thor Dawson','Brenda Griffith','Farrah Dorsey',5041,1179,500,3,True),
+  ('Martin Chapman','Allen Valencia','Erich English',9853,1505,500,0,False),
+  ('Ciaran Ramsey','Nomlanga Singleton','Brett Waters',6222,2054,500,7,False);

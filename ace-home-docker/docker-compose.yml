@@ -12,6 +12,7 @@ services:
     environment:
       POSTGRES_USER: acehome
       POSTGRES_PASSWORD: password
+      POSTGRES_DB: acehome-db
     volumes:
       - ah_pgsql:/var/lib/postgresql
       - ah_pgsql_data:/var/lib/postgresql/data
@@ -35,7 +36,7 @@ services:
       - sonarqube_logs:/opt/sonarqube/logs
       - sonarqube_temp:/opt/sonarqube/temp
 
-db_sonar:
+  db_sonar:
     image: postgres
     networks:
       - sonarnet
