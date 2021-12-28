@@ -10,21 +10,18 @@ import { ActivityService } from 'src/app/services/activity.service';
 export class DeleteFormComponent implements OnInit {
 
   constructor(private actSrv: ActivityService,) {
-    this.act = new Activity();
   }
 
-  @Input() act: Activity;
-  @Output() dataEvent = new EventEmitter<void>();
+  @Input() data: any;
+  @Output() dataEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
   }
 
   delete() {
-    if (this.act)
-      this.actSrv.deleteActivity(this.act.id).subscribe(data => {
-        console.log(data);
-        this.dataEvent.emit();
-      });
+    if (this.data)
+        this.dataEvent.emit(this.data);
+    
   }
 
 }

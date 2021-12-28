@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ContentChild, OnInit, TemplateRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Debt } from 'src/app/models/debt';
 import { Modal } from 'src/app/models/modal';
@@ -16,8 +16,11 @@ export class DebtDashComponent implements OnInit {
   balance: Balance = new Balance;
   debts: Debt[] = [];
   debtsSubscription: Subscription | undefined;
+
+  @ContentChild('tmpl') tmplRef: TemplateRef<any> | undefined;
   
   constructor(private debtSrv: DebtService) {
+    this.balance.title="Balance Des Dêttes";
     this.balance.modalId = "debt-dash";
     this.balance.modalId_ = "#debt-dash";
     this.balance.modalTitle = "";
@@ -76,5 +79,14 @@ export class DebtDashComponent implements OnInit {
     this.balance.selectData = event.data;
     console.log(this.balance);
   }
+
+  handleDeleteEvent(data:any) {
+    this.debtSrv.deleteDebt(data.id).subscribe(data => {
+      console.log(data);
+      this.getData();
+    });
+  }
+
+  
 
 }

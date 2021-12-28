@@ -17,7 +17,7 @@ public interface DebtRepository extends JpaRepository<Debt, Long> {
     float getBalance();
 
 
-    @Query(value = "SELECT * From debt WHERE  _delete=false", nativeQuery = true)
+    @Query(value = "SELECT * From debt WHERE  _delete=false Order By name", nativeQuery = true)
     List<Debt> getDebts();
 
     Debt getByName(String string);

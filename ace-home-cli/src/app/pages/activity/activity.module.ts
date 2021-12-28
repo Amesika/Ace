@@ -5,16 +5,20 @@ import { ActivityRoutingModule } from './activity-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActivityFormComponent } from './activity-form/activity-form.component';
 
 
 
 @NgModule({
   declarations: [
     ActivityDashComponent,
+    ActivityFormComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     ActivityRoutingModule
   ]

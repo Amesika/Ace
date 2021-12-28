@@ -15,14 +15,14 @@ export class ActivityFormComponent implements OnInit, OnChanges {
 
   activityForm: FormGroup;
 
-  @Input() act: Activity;
+  @Input() data: Activity;
   @Input() option: number;
 
   @Output() dataEvent = new EventEmitter<void>();
 
   constructor(private formBuilder: FormBuilder, private actSrv: ActivityService,private router: Router) {
     this.activityForm = this.formBuilder.group({});
-    this.act = new Activity();
+    this.data = new Activity();
     this.option = 0;
   }
 
@@ -39,7 +39,7 @@ export class ActivityFormComponent implements OnInit, OnChanges {
 
     console.log("initForm");
     
-    if (this.act == undefined || this.act.id == 0) {
+    if (this.data == undefined || this.data.id == 0) {
       this.activityForm = this.formBuilder.group({
         description:  ["", Validators.required],
         type: "source",
@@ -49,11 +49,11 @@ export class ActivityFormComponent implements OnInit, OnChanges {
       });
     } else {
       this.activityForm = this.formBuilder.group({
-        description:[this.act.description, Validators.required],
-        type: this.act._type,
-        amount: this.act.amount,
-        date: [this.act._date, Validators.required],
-        note: this.act.note
+        description:[this.data.description, Validators.required],
+        type: this.data._type,
+        amount: this.data.amount,
+        date: [this.data._date, Validators.required],
+        note: this.data.note
       });
       console.log(this.activityForm)
     }
@@ -71,16 +71,16 @@ export class ActivityFormComponent implements OnInit, OnChanges {
     );
 
     if (this.option == 1)
-      newActivity.id = this.act.id;
+      newActivity.id = this.data.id;
 
-    console.log(this.act);
+    console.log(this.data);
     console.log(newActivity);
     //this.ActivityService.addActivity(newActivity);
    
-    this.actSrv.postActivity(newActivity).subscribe(data => {
+    /*this.actSrv.postActivity(newActivity).subscribe(data => {
       console.log(data);
       this.dataEvent.emit();
-    });
+    });*/
   }
 
 

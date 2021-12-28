@@ -1,5 +1,6 @@
 export class Balance{
 
+    title!: String;
     value!: number ;
     date!: String ;
     modalId!: String ;

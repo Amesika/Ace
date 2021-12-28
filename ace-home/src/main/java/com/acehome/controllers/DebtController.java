@@ -50,15 +50,15 @@ public class DebtController {
     @PostMapping()
     public ResponseEntity<?> createDebt(@RequestBody DebtDTO actDto) {
 		logger.info("Create Debt");
-		DebtDTO newActDto =  debtSrv.createDebt(actDto);
-		return new ResponseEntity<>(newActDto, HttpStatus.OK);
+		DebtDTO newDebtDto =  debtSrv.createDebt(actDto);
+		return new ResponseEntity<>(newDebtDto, HttpStatus.OK);
 	}
 
     @PutMapping()
     public ResponseEntity<?> updateDebt(@RequestBody DebtDTO actDto) {
 		logger.info("Update Debt");
-		DebtDTO updateActDto =  debtSrv.updateDebt(actDto);
-		return new ResponseEntity<>(updateActDto, HttpStatus.OK);
+		DebtDTO updateDebtDto =  debtSrv.updateDebt(actDto);
+		return new ResponseEntity<>(updateDebtDto, HttpStatus.OK);
 	}
 
     @DeleteMapping("/{id}")

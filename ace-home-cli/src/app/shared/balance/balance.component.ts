@@ -13,8 +13,6 @@ export class BalanceComponent implements OnInit {
   @Input() balance: Balance = new Balance;
   date: String = "";
 
-  @Output() dataEvent = new EventEmitter<void>();
-
   @Output() addEvent = new EventEmitter<void>();
 
   constructor() { }
@@ -29,10 +27,6 @@ export class BalanceComponent implements OnInit {
     let act = new Activity();
     this.balance.selectData = act;
     this.addEvent.emit();
-  }
-
-  handleDataEvent() {
-    this.dataEvent.emit();
   }
 
 }

@@ -11,10 +11,10 @@ export class ListComponent implements OnInit {
   @Input()title:String ="";
   @Input()items:any[]=[];
   @Input()color:String ="";
+  @Input()modalId_:String ="";
+  @Input()option:Number=0;
 
   @Output() crudItemEvent = new EventEmitter<Modal>();
-
-  modalId_="#activity-dash";
 
   constructor() { }
 

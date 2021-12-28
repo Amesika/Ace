@@ -33,7 +33,7 @@ public class DebtServiceTest {
     void getBalanceTest() {
 
         float expectedBalance, actualBalance;
-        expectedBalance = 734145;
+        expectedBalance =  733968;
 
         actualBalance = debtSrv.balance();
         assertEquals(expectedBalance, actualBalance);

@@ -1,10 +1,21 @@
-<app-balance [balance]=balance (dataEvent)="handleDataEvent()" (addEvent)="addDebt()">
-    <div class="detail col-12">
-      <div class="row">
+<app-balance [balance]=balance (addEvent)="addDebt()">
+    <div class="detail col-12"list>
+      <div class="row" >
         <div class="col-12">
-          <app-list title="Dêttes" [items]=debts color="#0c2461" (crudItemEvent)="handleCrudEvent($event)">
+          <app-list title="Dêttes" [modalId_]=balance.modalId_  [option]="1" [items]=debts color="#0c2461" (crudItemEvent)="handleCrudEvent($event)">
           </app-list>
         </div>
       </div>
     </div>
+
+    <span crud>
+      <app-debt-form *ngIf="balance.modalOption<3" [option]="balance.modalOption" [data]="balance.selectData"
+        (dataEvent)="handleDataEvent()">
+      </app-debt-form>
+    </span>
+
+    <span delete>
+      <app-delete-form *ngIf="balance.modalOption==3" [data]="balance.selectData" (dataEvent)="handleDeleteEvent($event)">
+      </app-delete-form>
+    </span>
   </app-balance>

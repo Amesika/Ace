@@ -20,14 +20,15 @@ export class ActivityDashComponent implements OnInit {
   depenses: Activity[] = [];
   depensesSubscription: Subscription | undefined;
 
-  modalId = "activity-dash";
+  /*modalId = "activity-dash";
   modalId_ = "#activity-dash";
   modalTitle: String = "";
-  modalOption = 0;
+  modalOption = 0;*/
 
   selectAct: Activity = new Activity;
 
   constructor(private actSrv: ActivityService) { 
+    this.balance.title="Balance";
     this.balance.modalId = "activity-dash";
     this.balance.modalId_ = "#activity-dash";
     this.balance.modalTitle = "";
@@ -105,7 +106,17 @@ export class ActivityDashComponent implements OnInit {
   }
 
   handleDataEvent() {
+
     this.getData();
   }
+
+  handleDeleteEvent(data:any) {
+    this.actSrv.deleteActivity(data.id).subscribe(data => {
+      console.log(data);
+      this.getData();
+    });
+  }
+
+ 
 
 }

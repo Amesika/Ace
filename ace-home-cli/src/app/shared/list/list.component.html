@@ -7,10 +7,24 @@
     <ul class="list-group list-group-flush">
         <li class="list-group-item" *ngFor="let item of items">
             <div class="row">
-                <div class="col">{{item.description}}</div>
+                <div class="col">
+                    <span *ngIf="option==0">
+                        <div>{{item.description}}</div>
+                    </span>
+                    <span *ngIf="option==1">
+                        <div>{{item.name}}</div>
+                        <div class="sub-title">Montant initial : {{item.initAmount}} / Montant a payer : {{item.paymentAmount}}</div>
+                        <div  class="sub-title"><span> Créditeur : {{item.creditorName}}</span><span> / Taux :{{item.rate}}</span></div>
+                    </span>
+                </div>
                 <div class="col ms-auto text-end">
                     <span [ngStyle]="{color: color}">
-                        <b>{{item?.amount| number: '1.2-2'}}</b>
+                        <span *ngIf="option==0">
+                            <b>{{item?.amount| number: '1.2-2'}}</b>
+                        </span>
+                        <span *ngIf="option==1">
+                            <b>{{item?.currentAmount| number: '1.2-2'}}</b>
+                        </span>
                     </span>
 
                     <span class="ellipsis">

@@ -1,0 +1,51 @@
+<form [formGroup]="debtForm" (ngSubmit)="onSubmitForm()">
+    <div class="modal-body">
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="name">Nom de la dêtte</label>
+                <input type="text" id="name" class="form-control" formControlName="name">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" class="form-control" formControlName="description"
+                    rows="3"></textarea>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="creditorName">Nom du créditeur</label>
+                <input type="text" id="creditorName" class="form-control" formControlName="creditorName">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="initAmount">Montant Initial</label>
+                <input type="number" id="initAmount" class="form-control"  min=0 formControlName="initAmount">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="currentAmount">Montant Courant</label>
+                <input type="number" id="currentAmount" class="form-control"  min=0 formControlName="currentAmount">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="paymentAmount">Montant de l'écheance</label>
+                <input type="number" id="paymentAmount" class="form-control"  min=0 formControlName="paymentAmount">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="rate">Taux</label>
+                <input type="number" id="rate" class="form-control"  min=0 formControlName="rate">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >Valider</button>
+    </div>
+</form>
