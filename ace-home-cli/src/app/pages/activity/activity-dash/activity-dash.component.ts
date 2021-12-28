@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { Activity } from 'src/app/models/activity';
 import { Modal } from 'src/app/models/modal';
 import { ActivityService } from 'src/app/services/activity.service';
-import { ActivityFormComponent } from '../activity-form/activity-form.component';
+import { Balance } from 'src/app/shared/balance/balance';
 
 @Component({
   selector: 'app-activity-dash',
@@ -13,7 +13,7 @@ import { ActivityFormComponent } from '../activity-form/activity-form.component'
 })
 export class ActivityDashComponent implements OnInit {
 
-  balance: number = 0;
+  balance: Balance = new Balance;
   date: String = "";
   sources: Activity[] = [];
   sourcesSubscription: Subscription | undefined;
@@ -27,11 +27,17 @@ export class ActivityDashComponent implements OnInit {
 
   selectAct: Activity = new Activity;
 
-  constructor(private actSrv: ActivityService) { }
+  constructor(private actSrv: ActivityService) { 
+    this.balance.modalId = "activity-dash";
+    this.balance.modalId_ = "#activity-dash";
+    this.balance.modalTitle = "";
+    this.balance.modalOption = 0;
+  }
 
   ngOnInit(): void {
     this.date = moment(new Date()).format('DD-MM-YYYY');
     this.getData();
+
   }
 
   getSources() {
@@ -78,22 +84,24 @@ export class ActivityDashComponent implements OnInit {
 
   getBalance() {
     this.actSrv.getBalance().subscribe(data => {
-      this.balance = data;
+      this.balance.value = data;
     })
   }
 
   addActivity() {
     console.log("addActivity")
-    this.modalTitle = "Créer une activité"
+    this.balance.modalTitle = "Créer une activité"
     let act = new Activity();
-    this.selectAct = act;
+    this.balance.modalOption = 0;
+    this.balance.selectData = act;
   }
 
   handleCrudEvent(event: Modal) {
     console.log("handleCrudEvent")
-    this.modalTitle = event.title;
-    this.modalOption = event.option;
-    this.selectAct = event.data;
+    this.balance.modalTitle = event.title;
+    this.balance.modalOption = event.option;
+    this.balance.selectData = event.data;
+    console.log(this.balance);
   }
 
   handleDataEvent() {

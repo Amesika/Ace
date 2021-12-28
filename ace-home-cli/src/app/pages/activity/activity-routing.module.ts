@@ -7,8 +7,8 @@ import { HomeComponent } from '../home/home.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'activity', component: ActivityDashComponent },
-  { path: '', redirectTo: 'home' , pathMatch: 'full' },
-  { path: '**', redirectTo: 'home' }
+  { path: 'activity', component: ActivityDashComponent },
+
 ];
 
 @NgModule({
@@ -16,3 +16,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class ActivityRoutingModule { }
+
+/*{ path: '', redirectTo: 'home' , pathMatch: 'full' },
+{ path: '**', redirectTo: 'home' }*/

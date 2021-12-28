@@ -13,3 +13,13 @@
     font-size: 14px;
     font-weight: 500;
 }
+
+.dropdown-menu{
+    position: relative; 
+    z-index:  10000!important;
+}
+
+.card{
+    z-index:  1!important;
+}
+

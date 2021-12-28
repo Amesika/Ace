@@ -38,7 +38,8 @@ export class ActivityFormComponent implements OnInit, OnChanges {
   initForm() {
 
     console.log("initForm");
-    if (this.act.id == 0) {
+    
+    if (this.act == undefined || this.act.id == 0) {
       this.activityForm = this.formBuilder.group({
         description:  ["", Validators.required],
         type: "source",

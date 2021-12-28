@@ -1,16 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Activity } from 'src/app/models/activity';
 import { Modal } from 'src/app/models/modal';
 
 @Component({
-  selector: 'app-activity-list',
-  templateUrl: './activity-list.component.html',
-  styleUrls: ['./activity-list.component.css']
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
-export class ActivityListComponent implements OnInit {
+export class ListComponent implements OnInit {
 
   @Input()title:String ="";
-  @Input()items:Activity[]=[];
+  @Input()items:any[]=[];
   @Input()color:String ="";
 
   @Output() crudItemEvent = new EventEmitter<Modal>();
@@ -22,7 +21,7 @@ export class ActivityListComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  edit(item:Activity){
+  edit(item:any){
 
     console.log("Edit activity")
     let mdCli = new Modal();
@@ -32,7 +31,7 @@ export class ActivityListComponent implements OnInit {
     this.crudItemEvent.emit(mdCli);
   }
 
-  delete(item:Activity){
+  delete(item:any){
     console.log("Delete activity")
     let mdCli = new Modal();
     mdCli.title="Supprimer une activité";
@@ -41,7 +40,7 @@ export class ActivityListComponent implements OnInit {
     this.crudItemEvent.emit(mdCli);
   }
 
-  copy(item:Activity){
+  copy(item:any){
     console.log("Copy activity")
     let mdCli = new Modal();
     mdCli.title="Créer une activité";

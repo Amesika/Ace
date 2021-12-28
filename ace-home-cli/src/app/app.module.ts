@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ActivityModule } from './pages/activity/activity.module';
+import { DebtModule } from './pages/debt/debt.module';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
 
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     AppRoutingModule,
     ActivityModule,
+    DebtModule,
     SharedModule,
     FormsModule ,   
   ],

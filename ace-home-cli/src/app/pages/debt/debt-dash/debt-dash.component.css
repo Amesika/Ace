@@ -1,0 +1,17 @@
+.center{
+    text-align: center;
+}
+
+.date{
+    font-size: 15px;
+    font-weight: 750;
+}
+.detail{
+    margin-top: 10px;
+}
+
+
+.balance{
+    font-size: 30px;
+    font-weight: 700;
+}

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="center">
+                <br>
+                <h5>Balance</h5>
+                <span class="balance">
+                    <div [ngClass]="balance.value>0 ? 'ace-blue' : 'ace-red '">{{balance.value| number: '1.2-2'}}</div>
+                </span>
+
+                <hr>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row align-items-end">
+                <div class="col-md-4">
+                    <div class="date">
+                        <i class="fa fa-calendar" aria-hidden="true"></i> : {{date}}
+                    </div>
+                </div>
+                <div class="col-md-4 ms-auto">
+                    <button class="btn btn-primary pull-right" data-bs-toggle="modal" [attr.data-bs-target]="balance.modalId_"
+                        (click)=addActivity()><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+        <ng-content></ng-content>
+    </div>
+</div>
+
+<app-modal [modalId]="balance.modalId" [title]="balance.modalTitle">
+    <span>
+     <app-activity-form *ngIf="balance.modalOption<3" [option]="balance.modalOption" [act]="balance.selectData" (dataEvent)="handleDataEvent()">
+      </app-activity-form>
+       <!--<div  *ngIf="balance.modalOption<3">
+                {{balance.modalOption}}
+      </div>-->
+    </span>
+    <app-delete-form *ngIf="balance.modalOption==3" [act]="balance.selectData" (dataEvent)="handleDataEvent()"></app-delete-form>
+  </app-modal>

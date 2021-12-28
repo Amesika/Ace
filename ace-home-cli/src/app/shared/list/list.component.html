@@ -10,7 +10,7 @@
                 <div class="col">{{item.description}}</div>
                 <div class="col ms-auto text-end">
                     <span [ngStyle]="{color: color}">
-                        <b>{{item.amount| number: '1.2-2'}}</b>
+                        <b>{{item?.amount| number: '1.2-2'}}</b>
                     </span>
 
                     <span class="ellipsis">
