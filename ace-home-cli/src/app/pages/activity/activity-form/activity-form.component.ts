@@ -77,10 +77,10 @@ export class ActivityFormComponent implements OnInit, OnChanges {
     console.log(newActivity);
     //this.ActivityService.addActivity(newActivity);
    
-    /*this.actSrv.postActivity(newActivity).subscribe(data => {
+    this.actSrv.postActivity(newActivity).subscribe(data => {
       console.log(data);
       this.dataEvent.emit();
-    });*/
+    })
   }
 
 

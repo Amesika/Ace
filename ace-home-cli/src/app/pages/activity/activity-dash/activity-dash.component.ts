@@ -51,7 +51,7 @@ export class ActivityDashComponent implements OnInit {
     }
 
     this.sourcesSubscription = this.actSrv
-      .getActivitiesByType("2021-12-01", "2021-12-31", "source")
+      .getActivitiesByType("2021-12-01", "2022-12-31", "source")
       .subscribe(
         (activities: Activity[]) => {
           this.sources = activities;
@@ -69,7 +69,7 @@ export class ActivityDashComponent implements OnInit {
     }
 
     this.sourcesSubscription = this.actSrv
-      .getActivitiesByType("2021-12-01", "2021-12-31", "depense")
+      .getActivitiesByType("2021-12-01", "2022-12-31", "depense")
       .subscribe(
         (activities: Activity[]) => {
           this.depenses = activities;

@@ -1,4 +1,40 @@
-<h3 class="wlc">
+<div class="container-fluid">
+  <h2 class="wlc">
     Bienvenu sur AceHome...
+  </h2>
+  <hr>
+  <h3 class="wlc-title">
+    Tableau récapitulatif des sources et des dépenses
   </h3>
-
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="start-border"></th>
+          <th scope="col" *ngFor="let monthlab of monthslabs">{{monthlab}}</th>
+          <th scope="col" class="end-border">{{yearlab}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dataTable">
+          <th scope="row" class="start-border">{{item.yearlab}}</th>
+          <td *ngFor="let subitem of item.months">
+            <div class="sub-item-s ace-blue"><span>S : </span>{{subitem.source}}</div>
+           <div class="sub-item-d ace-red"><span>D : </span>{{subitem.depense}}</div> 
+          </td>
+          <td class="end-border" >
+            <div class="sub-item-s ace-blue"><span>S : </span>{{item.total.source}}</div>
+            <div class="sub-item-d ace-red"><span>D : </span>{{item.total.depense}}</div> 
+          </td>
+        </tr>
+        <tr class="bottom-border">
+          <th colspan ="13" class="text-end" >Total : </th>
+          <td class="end-border" >
+            <div class="sub-item-s ace-blue"><span>S : </span>{{totalAllTime.source}}</div>
+            <div class="sub-item-d ace-red"><span>D : </span>{{totalAllTime.depense}}</div> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

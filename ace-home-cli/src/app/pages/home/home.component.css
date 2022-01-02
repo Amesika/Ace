@@ -1,3 +1,37 @@
 .wlc{
     text-align: center;
+    font-weight: 800;
 }
+
+.end-border{
+    border-left: 1px solid #dee2e6;
+}
+
+.start-border{
+    border-right: 1px solid #dee2e6;
+}
+
+.bottom-border{
+    border-bottom: 0px solid transparent;
+}
+
+.wlc-title{
+    font-size: 20px;
+}
+
+.table-responsive{
+    max-height:65vh;
+    overflow-y: auto;
+}
+.sub-item-s,.sub-item-d{
+    font-weight: 900;
+}
+
+.sub-item-s{
+    font-size: 14px;
+}
+
+.sub-item-d{
+    font-size: 12px;
+}
+
