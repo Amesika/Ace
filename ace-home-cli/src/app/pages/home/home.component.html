@@ -17,8 +17,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of dataTable">
-          <th scope="row" class="start-border">{{item.yearlab}}</th>
-          <td *ngFor="let subitem of item.months">
+          <th scope="row" class="start-border">{{item.year}}</th>
+          <td *ngFor="let subitem of item.mds">
             <div class="sub-item-s ace-blue"><span>S : </span>{{subitem.source}}</div>
            <div class="sub-item-d ace-red"><span>D : </span>{{subitem.depense}}</div> 
           </td>

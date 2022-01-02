@@ -23,15 +23,14 @@
     max-height:65vh;
     overflow-y: auto;
 }
-.sub-item-s,.sub-item-d{
-    font-weight: 900;
-}
 
 .sub-item-s{
-    font-size: 14px;
+    font-size: 0.8em;
+    font-weight:600;
 }
 
 .sub-item-d{
-    font-size: 12px;
+    font-size: 0.7em;
+    font-weight: 500;
 }
 

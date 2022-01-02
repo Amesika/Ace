@@ -1,11 +1,11 @@
 export class DataTableDsRow {
-    yearlab: String;
-    months: DS[];
+    year: number;
+    mds: DS[];
     total: DS;
 
     constructor() {
-        this.yearlab = "";
-        this.months = [];
+        this.year = 0;
+        this.mds = [];
         this.total = new DS;
     }
 }

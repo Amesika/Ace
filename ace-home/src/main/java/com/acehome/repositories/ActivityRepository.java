@@ -3,6 +3,7 @@ package com.acehome.repositories;
 import java.util.List;
 
 import com.acehome.entities.Activity;
+import com.acehome.model.IMDsDTO;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -32,5 +33,12 @@ public interface ActivityRepository extends JpaRepository<Activity, Long> {
         @Param("startDate") String startDate, 
         @Param("endDate") String endDate, 
         @Param("type") String type);
+
+    @Query(value = "SELECT * From get_activity_years()", nativeQuery = true)
+    List<Float> getActivitiesYears();
+
+    @Query(value = "SELECT * From get_activity_months(:year)", nativeQuery = true)
+    List<IMDsDTO> getActivitiesMonths(@Param("year") float year);
+    
 
 }
