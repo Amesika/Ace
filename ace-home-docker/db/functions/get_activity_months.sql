@@ -4,7 +4,7 @@
 
 CREATE OR REPLACE FUNCTION public.get_activity_months(
 	_year numeric)
-    RETURNS TABLE(_month numeric, source bigint, depense bigint) 
+    RETURNS TABLE(_month numeric, source real, depense real) 
     LANGUAGE 'plpgsql'
     COST 100
     VOLATILE PARALLEL UNSAFE

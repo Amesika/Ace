@@ -28,7 +28,7 @@ public class DashBordController {
 
     @GetMapping()
     public ResponseEntity<?> getActivityMonths() {
-		logger.info("Get Activities Between Two Date");
+		logger.info("Get Activity Months");
 		List<ActivityYearDTO> dashActsDto =  dashSrv.activityTable();
 		return new ResponseEntity<>(dashActsDto, HttpStatus.OK);
 	}

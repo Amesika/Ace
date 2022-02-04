@@ -3,9 +3,9 @@
 -- DROP FUNCTION IF EXISTS public.get_activity_months_part1(numeric, character varying);
 
 CREATE OR REPLACE FUNCTION public.get_activity_months_part1(
-	_year numeric,
+	_year real,
 	intertype character varying)
-    RETURNS TABLE(_month numeric, _amount bigint) 
+    RETURNS TABLE(_month numeric, _amount real) 
     LANGUAGE 'plpgsql'
     COST 100
     VOLATILE PARALLEL UNSAFE
@@ -30,5 +30,5 @@ begin
 end;
 $BODY$;
 
-ALTER FUNCTION public.get_activity_months_part1(numeric, character varying)
+ALTER FUNCTION public.get_activity_months_part1(real, character varying)
     OWNER TO acehome;
