@@ -1,0 +1,9 @@
+<div [ngSwitch]="value">
+    <div *ngSwitchCase="'A_FAIRE'" [class]="'p-2 border-round text-center status '+value.toLowerCase()">{{value |
+        formatStr}}</div>
+    <div *ngSwitchCase="'EN_COURS'" [class]="'p-2 border-round text-center status '+value.toLowerCase()">{{value |
+        formatStr}}</div>
+    <div *ngSwitchCase="'TERMINER'" [class]="'p-2 border-round text-center status '+value.toLowerCase()">{{value |
+        formatStr}}</div>
+    <div *ngSwitchDefault [class]="'status'">Value is undefine.</div>
+</div>

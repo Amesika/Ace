@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ActivityModule } from './pages/activity/activity.module';
 import { DebtModule } from './pages/debt/debt.module';
 import { HomeComponent } from './pages/home/home.component';
+import { TaskModule } from './pages/task/task.module';
 import { SharedModule } from './shared/shared.module';
 
 
@@ -24,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     ActivityModule,
     DebtModule,
+    TaskModule,
     SharedModule,
     FormsModule ,   
   ],

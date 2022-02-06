@@ -1,0 +1,25 @@
+@import  "../task.scss";
+
+.priority{
+    font-weight: bold;
+    &.basse{
+        color: $task-basse;
+        background-color: $task-basse-bg;
+    }
+    &.normal{
+        color:  $task-normal;
+        background-color: $task-normal-bg;
+    }
+    &.urgent{
+        color:  $task-urgent;
+        background-color: $task-urgent-bg;
+    }
+    &.importent{
+        color:  $task-importent;
+        background-color: $task-importent-bg;
+    }
+    &.urgent_importent{
+        color:  $task-urgent-importent;
+        background-color: $task-urgent-importent-bg;
+    }
+}

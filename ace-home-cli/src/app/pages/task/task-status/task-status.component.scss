@@ -1,0 +1,17 @@
+@import  "../task.scss";
+
+.status{
+    font-weight: bold;
+    &.a_faire{
+        color: $task-a_faire;
+        background-color: $task-a_faire-bg;
+    }
+    &.en_cours{
+        color:  $task-en_cours;
+        background-color: $task-en_cours-bg;
+    }
+    &.terminer{
+        color:  $task-terminer;
+        background-color: $task-terminer-bg;
+    }
+}

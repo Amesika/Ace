@@ -1,0 +1,8 @@
+<div [ngSwitch]="value">
+    <div *ngSwitchCase="'BASSE'" [class]="'p-2 border-round text-center priority '+value.toLowerCase()">{{value | formatStr}}</div>
+    <div *ngSwitchCase="'NORMAL'" [class]="'p-2 border-round text-center priority '+value.toLowerCase()">{{value | formatStr}}</div>
+    <div *ngSwitchCase="'URGENT'" [class]="'p-2 border-round text-center priority '+value.toLowerCase()">{{value | formatStr}}</div>
+    <div *ngSwitchCase="'IMPORTENT'" [class]="'p-2 border-round text-center priority '+value.toLowerCase()">{{value | formatStr}}</div>
+    <div *ngSwitchCase="'URGENT_IMPORTENT'" [class]="'p-2 border-round text-center priority '+value.toLowerCase()">{{value | formatStr}}</div>
+    <div *ngSwitchDefault [class]="'priority'" >Value is undefine.</div>
+</div>
