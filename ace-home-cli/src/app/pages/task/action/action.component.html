@@ -4,7 +4,7 @@
     <button type="button" pButton icon="pi pi-cog" id="dropdownMenuButton1" data-bs-toggle="dropdown" ></button>
 
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li *ngFor="let item of items"><a class="dropdown-item" href="#"><i [ngClass]="item.icon"></i> {{item.label}}</a></li>
+      <li *ngFor="let item of items"><a class="dropdown-item" (click)="emit(item.key)" ><i [ngClass]="item.icon"></i> {{item.label}}</a></li>
     </ul>
   </div>
 

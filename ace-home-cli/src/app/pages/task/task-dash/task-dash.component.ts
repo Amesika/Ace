@@ -3,13 +3,15 @@ import { Observable, Subscription } from 'rxjs';
 import { Task } from '../models/task';
 import { TaskService } from '../services/task.service';
 import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 import { TaskPriority } from '../models/task-property';
+import { TaskStatus } from '../models/task-status';
 
 @Component({
     selector: 'app-task-dash',
     templateUrl: './task-dash.component.html',
     styleUrls: ['./task-dash.component.scss'],
-    providers: [MessageService]
+    providers: [MessageService,ConfirmationService]
 })
 export class TaskDashComponent implements OnInit {
 
@@ -17,62 +19,55 @@ export class TaskDashComponent implements OnInit {
     submitted!: boolean;
     selectedTasks!: Array<Task>
     tasks$!: Observable<any>;
-    task!: Task ;
+    task!: Task;
     items!: any[];
     priorities = [
-        {name:"Basse",key:TaskPriority.BASSE},
-        {name:"Normal",key:TaskPriority.NORMAL},
-        {name:"Importent",key:TaskPriority.IMPORTENT},
-        {name:"Urgent",key:TaskPriority.URGENT},
-        {name:"UI",key:TaskPriority.URGENT_IMPORTENT}
+        { name: "Basse", key: TaskPriority.BASSE, keystr: 'BASSE' },
+        { name: "Normal", key: TaskPriority.NORMAL, keystr: 'NORMAL' },
+        { name: "Importent", key: TaskPriority.IMPORTENT, keystr: 'IMPORTENT' },
+        { name: "Urgent", key: TaskPriority.URGENT, keystr: 'URGENT' },
+        { name: "UI", key: TaskPriority.URGENT_IMPORTENT, keystr: 'URGENT_IMPORTENT' }
     ];
 
-    priority!:any;
+    status = [
+        { name: "A faire", key: TaskStatus.A_FAIRE, keystr: 'A_FAIRE' },
+        { name: "En cours", key: TaskStatus.EN_COURS, keystr: 'EN_COURS' },
+        { name: "Terminer", key: TaskStatus.TERMINER, keystr: 'TERMINER' },
+    ];
 
-    constructor(private taskSrv: TaskService, private messageService: MessageService) { }
+    priority!: any;
+    st!: any;
+
+    constructor(private taskSrv: TaskService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
     ngOnInit(): void {
         this.tasks$ = this.taskSrv.getTasks();
-        this.items = [{
-            label: 'Options',
-            items: [{
-                label: 'Update',
-                icon: 'pi pi-refresh',
-                command: () => {
-                    this.update();
-                }
-            },
-            {
-                label: 'Delete',
-                icon: 'pi pi-times',
-                command: () => {
-                    this.delete();
-                }
-            }
-            ]
-        },
-        {
-            label: 'Navigate',
-            items: [{
-                label: 'Angular',
-                icon: 'pi pi-external-link',
-                url: 'http://angular.io'
-            },
-            {
-                label: 'Router',
-                icon: 'pi pi-upload',
-                routerLink: '/fileupload'
-            }
-            ]
-        }
-        ];
     }
 
-    editProduct(task: Task) {
-
+    handleUpdate(task: Task) {
+        this.task = { ...task };
+        this.priority = this.priorities.find((p) => p.keystr == task.priority.toString());
+        this.st = this.status.find((s) => s.keystr == task.status.toString());
+        this.taskDialog = true;
     }
-    deleteProduct(task: Task) {
 
+    handleDelete(task: Task) {
+        console.log('handleDelete')
+        console.log(task)
+        this.confirmationService.confirm({
+            message: 'Etes-vous sûr que vous voulez supprime ' + task.title + '?',
+            header: 'Confirmer',
+            icon: 'pi pi-exclamation-triangle',
+            accept: () => {
+                this.taskSrv.delete(task.id).subscribe((rep) => {
+                    if (rep){
+                        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'La tâche est supprimé.', life: 3000 });
+                        this.tasks$ = this.taskSrv.getTasks();
+                    }                       
+                })
+                this.task = {} as Task;
+            }
+        });
     }
 
     openNew() {
@@ -80,34 +75,28 @@ export class TaskDashComponent implements OnInit {
         this.submitted = false;
         this.taskDialog = true;
     }
-    deleteSelectedTasks() {
 
-    }
-
-    update() {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Data Updated' });
-    }
-
-    delete() {
-        this.messageService.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted' });
-    }
     hideDialog() {
         this.taskDialog = false;
         this.submitted = false;
     }
+
     saveTask() {
         this.submitted = true;
         this.task.priority = this.priority.key;
         if (this.task.title.trim()) {
             if (this.task.id) {
-                //this.tasks[this.findIndexById(this.task.id)] = this.task;                
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
+                this.task.status = this.st.key;
+                this.taskSrv.putTask(this.task).subscribe((data) => {
+                    this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'La tâche est mise à jour', life: 3000 });
+                    this.tasks$ = this.taskSrv.getTasks();
+                });
             }
             else {
-                this.taskSrv.postTask(this.task).subscribe((data)=>{
-                    this.messageService.add({severity:'success', summary: 'Successful', detail: 'La tâche est créée', life: 3000});
+                this.taskSrv.postTask(this.task).subscribe((data) => {
+                    this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'La tâche est créée', life: 3000 });
                     this.tasks$ = this.taskSrv.getTasks();
-                });     
+                });
             }
             this.task = {} as Task;
             this.taskDialog = false;

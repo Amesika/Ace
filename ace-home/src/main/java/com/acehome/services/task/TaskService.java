@@ -39,8 +39,6 @@ public class TaskService {
 
     public TaskDto add(TaskDto taskDto) {
         Task task = mapper.dtoToTask(taskDto);
-
-        logger.info(task);
         task.setStatus(TaskStatus.A_FAIRE);
         task.setStartDate(currentDateStr);
         task = taskRepo.saveAndFlush(task);

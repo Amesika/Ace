@@ -23,6 +23,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DropdownModule } from 'primeng/dropdown';
 import {ToastModule} from 'primeng/toast';
+import {SliderModule} from 'primeng/slider';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import {ToastModule} from 'primeng/toast';
     DialogModule,
     TaskRoutingModule,
     InputNumberModule,
+    SliderModule,
+    ConfirmDialogModule
   ]
 })
 export class TaskModule { }

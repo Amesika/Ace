@@ -8,5 +8,5 @@ export class Task {
     priority!: TaskPriority;
     status!: TaskStatus;
     startDate!: string;
-    progess!:number;
+    progress!:number;
 }

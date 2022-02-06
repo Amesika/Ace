@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 
 @Component({
@@ -9,6 +9,9 @@ import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 })
 export class ActionComponent implements OnInit {
 
+  @Output() eventUpdate = new EventEmitter()
+  @Output() eventDelete = new EventEmitter()
+
   items!: any[];
 
   constructor(private messageService: MessageService) { }
@@ -17,32 +20,26 @@ export class ActionComponent implements OnInit {
     this.items = [{
       label: 'Update',
       icon: 'pi pi-refresh',
-      command: () => {
-        this.update();
-      }
+      key: 0
     },
     {
       label: 'Delete',
       icon: 'pi pi-times',
-      command: () => {
-        this.delete();
-      }
+      key: 1
     }
     ]
   };
 
-  update() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Data Updated' });
+  emit(key: number) {
+    switch (key) {
+      case 0:
+        this.eventUpdate.emit()
+        break;
+      case 1:
+        this.eventDelete.emit()
+        break;
+    }
   }
-
-  delete() {
-    this.messageService.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted' });
-  }
-
-  save(severity: string) {
-    this.messageService.add({severity:severity, summary:'Success', detail:'Data Saved'});
-}
-
 }
 
 

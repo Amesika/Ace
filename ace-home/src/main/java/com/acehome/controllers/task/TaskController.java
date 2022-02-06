@@ -59,6 +59,7 @@ public class TaskController {
     @PutMapping()
     public ResponseEntity<?> updateActivity(@RequestBody TaskDto taskDto) {
         logger.info("Update task");
+        logger.info(taskDto);
         TaskDto updateActDto = taskSrv.update(taskDto);
         return new ResponseEntity<>(updateActDto, HttpStatus.OK);
     }

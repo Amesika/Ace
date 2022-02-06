@@ -46,7 +46,7 @@
                     <app-task-priority [value]="task.priority"></app-task-priority>
                 </td>
                 <td>
-                    <app-action></app-action>
+                    <app-action (eventUpdate)="handleUpdate(task)" (eventDelete)="handleDelete(task)"></app-action>
                 </td>
             </tr>
         </ng-template>
@@ -67,8 +67,19 @@
             <textarea id="comment" pInputTextarea [(ngModel)]="task.comment" required rows="3" cols="20"></textarea>
         </div>
         <div class="p-field">
-            <label for="comment">Priority</label>
+            <label for="priority">Priority</label>
             <p-dropdown [options]="priorities" [(ngModel)]="priority" placeholder="Choix de la priorité" optionLabel="name"></p-dropdown>
+        </div>
+
+        <div *ngIf="task.id>0">
+            <div class="p-field">
+                <label for="status">Status</label>
+                <p-dropdown [options]="status" [(ngModel)]="st" placeholder="Choix du status" optionLabel="name"></p-dropdown>
+            </div>
+            <div class="p-field pt-3 pb-3">
+                <label for="progress">Progression : {{task.progress}}</label>
+                <p-slider [(ngModel)]="task.progress"></p-slider>
+            </div>
         </div>
 
     </ng-template>
@@ -78,3 +89,5 @@
         <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveTask()"></button>
     </ng-template>
 </p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
