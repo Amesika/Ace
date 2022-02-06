@@ -1,4 +1,9 @@
 :host ::ng-deep {
+
+    .p-dialog-content{
+        overflow-y: visible;
+    }
+}/*
     .p-paginator {
         .p-paginator-current {
             margin-left: auto;
@@ -49,7 +54,7 @@
         }
     }
     
-    /* Responsive */
+    /* Responsive 
     .p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
         display: none;
     }
@@ -93,4 +98,4 @@
         }
     }
 
-}
+}*/

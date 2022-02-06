@@ -51,6 +51,7 @@ public class TaskController {
     @PostMapping()
     public ResponseEntity<?> createActivity(@RequestBody TaskDto taskDto) {
         logger.info("Create task");
+        logger.info(taskDto);
         TaskDto newActDto = taskSrv.add(taskDto);
         return new ResponseEntity<>(newActDto, HttpStatus.OK);
     }
