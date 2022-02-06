@@ -37,5 +37,11 @@ public class Task{
     private TaskStatus status;
 
     @Column()
+    private String startDate;
+
+    @Column(columnDefinition = "integer default 100")
+    private Integer progress;
+
+    @Column()
     private boolean isDeleted;
 }

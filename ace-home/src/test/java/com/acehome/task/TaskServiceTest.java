@@ -3,6 +3,11 @@ package com.acehome.task;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import com.acehome.entities.task.TaskPriority;
 import com.acehome.entities.task.TaskStatus;
 import com.acehome.model.task.TaskDto;
@@ -20,6 +25,11 @@ public class TaskServiceTest {
     @Autowired
     TaskService taskSrv;
 
+    Calendar cal = Calendar.getInstance(new Locale("fr"));  
+    Date currentDate = cal.getTime();  
+    SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+    String currentDateStr= format1.format(currentDate);     
+
     // Crud
 
     // ** Add Task */
@@ -27,8 +37,10 @@ public class TaskServiceTest {
     void addTaskTest() {
         String title = "New Task";
         String comment = "Task Comment";
-        TaskStatus status = TaskStatus.A_FAIR;
+        TaskStatus status = TaskStatus.A_FAIRE;
         TaskPriority priority = TaskPriority.NORMAL;
+        String startDate = currentDateStr;
+        int progress = 50 ;
 
         TaskDto taskDto = new TaskDto();
         TaskDto taskDtoActual = new TaskDto();
@@ -37,6 +49,8 @@ public class TaskServiceTest {
         taskDto.setComment(comment);
         taskDto.setPriority(priority);
         taskDto.setStatus(status);
+        taskDto.setStartDate(startDate);
+        taskDto.setProgress(progress);
 
         taskDtoActual = taskSrv.add(taskDto);
 
@@ -44,6 +58,8 @@ public class TaskServiceTest {
         assertEquals(title, taskDtoActual.getTitle());
         assertEquals(comment, taskDtoActual.getComment());
         assertEquals(priority, taskDtoActual.getPriority());
+        assertEquals(startDate, taskDtoActual.getStartDate());
+        assertEquals(progress, taskDtoActual.getProgress());
     }
 
     // ** Update Task */
@@ -52,8 +68,10 @@ public class TaskServiceTest {
 
         String title = "New Task To Update";
         String comment = "Task Comment To Update";
-        TaskStatus status = TaskStatus.A_FAIR;
+        TaskStatus status = TaskStatus.A_FAIRE;
         TaskPriority priority = TaskPriority.NORMAL;
+        String startDate =  currentDateStr;
+        int progress = 50 ;
 
         TaskDto taskDto = new TaskDto();
         TaskDto taskDtoActual = new TaskDto();
@@ -62,6 +80,8 @@ public class TaskServiceTest {
         taskDto.setComment(comment);
         taskDto.setPriority(priority);
         taskDto.setStatus(status);
+        taskDto.setStartDate(startDate);
+        taskDto.setProgress(progress);
 
         // ADD
         taskDto = taskSrv.add(taskDto);
@@ -69,10 +89,13 @@ public class TaskServiceTest {
         title = "Task Update";
         comment = "Task Comment Update";
         priority = TaskPriority.IMPORTENT;
+        progress = 70 ;
 
         taskDto.setTitle(title);
         taskDto.setComment(comment);
         taskDto.setPriority(priority);
+        taskDto.setStartDate(startDate);
+        taskDto.setProgress(progress);
 
         // UPDATE
         taskDtoActual = taskSrv.update(taskDto);
@@ -81,6 +104,8 @@ public class TaskServiceTest {
         assertEquals(title, taskDtoActual.getTitle());
         assertEquals(comment, taskDtoActual.getComment());
         assertEquals(priority, taskDtoActual.getPriority());
+        assertEquals(startDate, taskDtoActual.getStartDate());
+        assertEquals(progress, taskDtoActual.getProgress());
     }
 
     // ** Remove Task */
@@ -89,8 +114,11 @@ public class TaskServiceTest {
 
         String title = "New Task To Delete";
         String comment = "Task Comment To Delete";
-        TaskStatus status = TaskStatus.A_FAIR;
+        TaskStatus status = TaskStatus.A_FAIRE;
         TaskPriority priority = TaskPriority.NORMAL;
+        String startDate =  currentDateStr;
+        int progress = 50 ;
+
         boolean isDeleted = true;
         boolean isDeletedActual;
 
@@ -100,6 +128,8 @@ public class TaskServiceTest {
         taskDto.setComment(comment);
         taskDto.setPriority(priority);
         taskDto.setStatus(status);
+        taskDto.setStartDate(startDate);
+        taskDto.setProgress(progress);
 
         // ADD
         taskDto = taskSrv.add(taskDto);
@@ -117,8 +147,10 @@ public class TaskServiceTest {
 
         String title = "New Task To Get";
         String comment = "Task Comment To Get";
-        TaskStatus status = TaskStatus.A_FAIR;
+        TaskStatus status = TaskStatus.A_FAIRE;
         TaskPriority priority = TaskPriority.NORMAL;
+        String startDate =  currentDateStr;
+        int progress = 50 ;
 
         TaskDto taskDto = new TaskDto();
         TaskDto taskDtoActual = new TaskDto();
@@ -127,6 +159,8 @@ public class TaskServiceTest {
         taskDto.setComment(comment);
         taskDto.setPriority(priority);
         taskDto.setStatus(status);
+        taskDto.setStartDate(startDate);
+        taskDto.setProgress(progress);
 
         // ADD
         taskDto = taskSrv.add(taskDto);
@@ -138,6 +172,8 @@ public class TaskServiceTest {
         assertEquals(title, taskDtoActual.getTitle());
         assertEquals(comment, taskDtoActual.getComment());
         assertEquals(priority, taskDtoActual.getPriority());
+        assertEquals(startDate, taskDtoActual.getStartDate());
+        assertEquals(progress, taskDtoActual.getProgress());
     }
 
     // ** Get Task List */
@@ -154,8 +190,10 @@ public class TaskServiceTest {
 
             String title = "New Task Index "+i;
             String comment = "Task Comment Index "+i;
-            TaskStatus status = TaskStatus.A_FAIR;
+            TaskStatus status = TaskStatus.A_FAIRE;
             TaskPriority priority = TaskPriority.NORMAL;
+            String startDate =  currentDateStr;
+            int progress = 50 ;
            
             TaskDto taskDto = new TaskDto();
 
@@ -163,6 +201,9 @@ public class TaskServiceTest {
             taskDto.setComment(comment);
             taskDto.setPriority(priority);
             taskDto.setStatus(status);
+            taskDto.setStartDate(startDate);
+            taskDto.setProgress(progress);
+
             taskSrv.add(taskDto);
         }
         

@@ -20,5 +20,7 @@ public class TaskDto {
     private String comment;
     private TaskStatus status;
     private TaskPriority priority;
+    private String startDate;
+    private int progress;
 
 }

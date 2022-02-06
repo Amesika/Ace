@@ -1,8 +1,8 @@
 package com.acehome.entities.task;
 
 public enum TaskStatus {
-    A_FAIR(1),
-    EN_COUR(2),
+    A_FAIRE(1),
+    EN_COURS(2),
     TERMINER(3);
 
     private int val;
