@@ -5,8 +5,6 @@ import { DeleteFormComponent } from './delete-form/delete-form.component';
 import { BalanceComponent } from './balance/balance.component';
 import { ListComponent } from './list/list.component';
 
-
-
 @NgModule({
   declarations: [
     ModalComponent,

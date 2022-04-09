@@ -1,0 +1,27 @@
+<form [formGroup]="bankForm" (ngSubmit)="onSubmitForm()">
+    <div class="modal-body">
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="name">Nom</label>
+                <input type="text" id="name" class="form-control" formControlName="name">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="number">Numéro du compte</label>
+                <input type="text" id="number" class="form-control" formControlName="number">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="note">Description</label>
+                <textarea class="form-control" id="description" class="form-control" formControlName="description"
+                    rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
+    </div>
+</form>

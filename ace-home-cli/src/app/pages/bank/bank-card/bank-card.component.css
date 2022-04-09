@@ -1,0 +1,25 @@
+:host ::ng-deep .card{
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-left: solid 5px #192a56;
+}
+:host ::ng-deep .card-body{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+:host ::ng-deep h5.card-title{
+    padding: 0;
+    margin: 0;
+}
+
+:host ::ng-deep .card-text .col{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+:host ::ng-deep .card:hover{
+    background-color: #273c75;
+    color: white;
+}
+

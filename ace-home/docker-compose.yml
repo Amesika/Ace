@@ -23,7 +23,6 @@ services:
       - db
     depends_on:
       - db
-    restart: always
     ports:
       #- "28080:8080"
       - "8080:8080"
@@ -36,7 +35,6 @@ services:
     image: amesika/ace-home-cli:latest
     depends_on:
       - server
-    restart: always
     ports:
       - "5500:80"
     networks:

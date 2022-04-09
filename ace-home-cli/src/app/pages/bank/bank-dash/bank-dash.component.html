@@ -1,0 +1,11 @@
+<app-balance [balance]=balance (addEvent)="addBank()">
+  <span crud>
+    <app-bank-form *ngIf="balance.modalOption<3" [option]="balance.modalOption" [data]="balance.selectData"
+      (dataEvent)="handleDataEvent()">
+    </app-bank-form>
+  </span>
+</app-balance>
+
+<div class="container-fluid">
+  <app-bank-card [bank]="bank" *ngFor="let bank of banks" ></app-bank-card>
+</div>

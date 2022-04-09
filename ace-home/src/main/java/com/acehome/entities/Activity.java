@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.acehome.entities.bank.Bank;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,6 +43,10 @@ public class Activity {
 
     @Column()
     private Boolean _delete;
+
+    @ManyToOne
+    @JoinColumn(name="bank_id",nullable=true)
+    private Bank  bank;
 
     public Activity(){
         _delete = false;

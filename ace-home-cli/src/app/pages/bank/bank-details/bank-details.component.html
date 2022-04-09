@@ -1,0 +1,22 @@
+<div>
+    <div>Banque</div>
+    <div>Nom : {{bank.name}}</div>
+    <div>N° : {{bank.number}}</div>
+    <div>Description : {{bank.description}}</div>
+    <hr>
+
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary" (click)="handelBack()"><i class="fa fa-arrow-left"></i> Retour</button>
+        </div>
+        <div>
+            <button type="button"  data-bs-toggle="modal" [attr.data-bs-target]="modalId_" class="btn btn-danger mr-2"  (click)="handelDelete()"><i class="fa fa-trash"></i> Supprimer</button>
+            <button type="button"  data-bs-toggle="modal" [attr.data-bs-target]="modalId_" class="btn btn-primary"   (click)="handelUpdate()"><i class="fa fa-edit"></i> Update</button>
+        </div>
+    </div>
+</div>
+
+<app-modal [modalId]="modalId" [title]="modalTitle">
+    <app-delete-form *ngIf="isDelete" [data]="bank" (dataEvent)="deleteBank($event)" ></app-delete-form>
+    <app-bank-form *ngIf="isUpdate" [option]=1 [data]="bank" (dataEvent)="updateBank()"></app-bank-form>
+</app-modal>
