@@ -11,17 +11,12 @@ import com.acehome.entities.task.TaskStatus;
 import com.acehome.mapper.task.TaskMapper;
 import com.acehome.model.task.TaskDto;
 import com.acehome.repositories.task.TaskRepository;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TaskService {
-
-    private static Logger logger = LogManager.getLogger(TaskService.class);
 
     @Autowired
     private TaskRepository taskRepo;
