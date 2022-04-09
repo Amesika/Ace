@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { DataTableDsRow } from '../models/data-table';
 
 @Injectable({
@@ -8,15 +9,14 @@ import { DataTableDsRow } from '../models/data-table';
 })
 export class DashbordService {
 
-  href = "http://localhost:8080";
-  apiUrl = '/api/dash-bord'
+  apiUrl =  environment.API_URL+"dash-bord";
 
   constructor(protected _http: HttpClient) {
   }
 
 
   getActivitiesMonths(): Observable<DataTableDsRow[]> {
-    const requestUrl = `${this.href}${this.apiUrl}`;
+    const requestUrl = `${this.apiUrl}`;
     return this._http.get<DataTableDsRow[]>(requestUrl)
   }
 

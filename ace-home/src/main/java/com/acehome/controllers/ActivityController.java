@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @CrossOrigin(origins = "*")
-@RequestMapping("api/activity")
+@RequestMapping("activity")
 public class ActivityController {
 
     @Autowired

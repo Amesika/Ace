@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @CrossOrigin(origins = "*")
-@RequestMapping("api/debt")
+@RequestMapping("debt")
 public class DebtController {
 
     @Autowired

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @CrossOrigin(origins = "*")
-@RequestMapping("api/dash-bord")
+@RequestMapping("dash-bord")
 public class DashBordController {
 
     @Autowired
