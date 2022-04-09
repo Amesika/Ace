@@ -1,9 +1,5 @@
 package com.acehome.model.bank;
 
-import java.util.Set;
-
-import com.acehome.entities.Activity;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
