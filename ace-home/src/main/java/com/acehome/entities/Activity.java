@@ -1,5 +1,6 @@
 package com.acehome.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,8 +45,8 @@ public class Activity {
     @Column()
     private Boolean _delete;
 
-    @ManyToOne
-    @JoinColumn(name="bank_id",nullable=true)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name="bank_id")
     private Bank  bank;
 
     public Activity(){

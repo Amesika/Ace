@@ -3,7 +3,9 @@
     <h5 class="card-title">{{bank.name}}</h5>
     <div class="row card-text">
       <div class="col">{{bank.number}}</div>
-      <div class="col text-right">2000</div>
+      <div class="col text-right">
+        <div [ngClass]="bank.sold >0 ? 'ace-blue' : 'ace-red '">{{bank.sold | number: '1.2-2'}}</div>
+        </div>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Balance } from 'src/app/shared/balance/balance';
 import { Bank } from '../models/bank';
+import { BankSold } from '../models/bank-sold';
 import { BankService } from '../services/bank.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class BankDashComponent implements OnInit {
 
   balance: Balance = new Balance;
 
-  banks: Bank[] = [];
+  banks: BankSold[] = [];
 
   constructor(private bankSrv: BankService) {
     this.balance.title = "Solde de tous les banques";
@@ -40,14 +41,18 @@ export class BankDashComponent implements OnInit {
 
   getBanks() {
     for (let index = 0; index < 5; index++) {
-      let bank = new Bank
+      let bank = new BankSold
       bank.name = "Bank - " + index;
       bank.number = "" + index;
       this.banks.push(bank);
     }
 
-    this.bankSrv.getBanks().subscribe((banks) => {
+    this.bankSrv.getBanksWithSold().subscribe((banks) => {
       this.banks = banks;
+    })
+
+    this.bankSrv.getTotalSold().subscribe((sold) => {
+      this.balance.value = sold;
     })
   }
 }

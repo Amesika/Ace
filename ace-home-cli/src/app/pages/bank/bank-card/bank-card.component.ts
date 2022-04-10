@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Bank } from 'src/app/pages/bank/models/bank';
+import { BankSold } from '../models/bank-sold';
 
 @Component({
   selector: 'app-bank-card',
@@ -9,7 +10,7 @@ import { Bank } from 'src/app/pages/bank/models/bank';
 })
 export class BankCardComponent implements OnInit {
 
-  @Input() bank!: Bank;
+  @Input() bank!: BankSold;
 
   constructor(public router: Router) { }
 

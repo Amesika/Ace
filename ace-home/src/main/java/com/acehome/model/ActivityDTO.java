@@ -1,5 +1,7 @@
 package com.acehome.model;
 
+import com.acehome.model.bank.BankDto;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,5 +18,5 @@ public class ActivityDTO {
     private String note;
     private String _type;
     private String _date;
-
+    private BankDto bankDto;
 }

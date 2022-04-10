@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Bank } from '../models/bank';
+import { BankSold } from '../models/bank-sold';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,15 @@ export class BankService {
   getBanks(): Observable<Bank[]> {
     const requestUrl = `${this.apiUrl}`;
     return this._http.get<Bank[]>(requestUrl)
+  }
+
+  getBanksWithSold(): Observable<BankSold[]> {
+    const requestUrl = `${this.apiUrl}/sold`;
+    return this._http.get<BankSold[]>(requestUrl)
+  }
+
+  getTotalSold(): Observable<number> {
+    const requestUrl = `${this.apiUrl}/total-sold`;
+    return this._http.get<number>(requestUrl)
   }
 }

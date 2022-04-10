@@ -83,7 +83,7 @@ public class ActivityController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteActivity(@PathVariable("id") Long activityDtoId) {
 		logger.info("Delete Activity");
-		Activity actDto =  actSrv.deleteActivity(activityDtoId);
+		ActivityDTO actDto =  actSrv.deleteActivity(activityDtoId);
 		return new ResponseEntity<>(actDto, HttpStatus.OK);
 	}
 

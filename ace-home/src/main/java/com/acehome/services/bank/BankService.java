@@ -5,6 +5,7 @@ import java.util.List;
 import com.acehome.entities.bank.Bank;
 import com.acehome.mapper.bank.BankMapper;
 import com.acehome.model.bank.BankDto;
+import com.acehome.model.bank.BankSoldDto;
 import com.acehome.repositories.bank.BankRepository;
 
 import org.mapstruct.factory.Mappers;
@@ -21,6 +22,15 @@ public class BankService {
 
     public List<BankDto> list() {
         return mapper.map(bankRepo.findAllByIsDeletedFalseOrderByNameAsc());
+    }
+
+    public List<BankSoldDto> listWithSold() {
+        List<BankSoldDto> banks = bankRepo.findAllBankWithSold();
+        return banks;
+    }
+
+    public double totalSold() {
+        return bankRepo.totalSold();
     }
 
     public BankDto add(BankDto bankDto) {

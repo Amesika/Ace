@@ -2,6 +2,7 @@ package com.acehome.entities.bank;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,7 +41,7 @@ public class Bank {
     @Column()
     private String description;
 
-    @OneToMany(mappedBy="bank")
+    @OneToMany(mappedBy="bank", orphanRemoval = true,cascade = CascadeType.ALL)
     private Set<Activity> activities;
 
     @Column()

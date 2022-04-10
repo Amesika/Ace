@@ -3,6 +3,7 @@ package com.acehome.controllers.bank;
 import java.util.List;
 
 import com.acehome.model.bank.BankDto;
+import com.acehome.model.bank.BankSoldDto;
 import com.acehome.services.bank.BankService;
 
 import org.apache.logging.log4j.LogManager;
@@ -37,6 +38,19 @@ public class BankController {
         logger.info("Get all active banks");
         List<BankDto> banksDto = bankSrv.list();
         return new ResponseEntity<>(banksDto, HttpStatus.OK);
+    }
+    @GetMapping("/sold")
+    public ResponseEntity<?> getBanksWithSold() {
+        logger.info("Get all active banks with sold");
+        List<BankSoldDto> banksDto = bankSrv.listWithSold();
+        return new ResponseEntity<>(banksDto, HttpStatus.OK);
+    }
+
+    @GetMapping("/total-sold")
+    public ResponseEntity<?> getTotalSold() {
+        logger.info("Get Total Sold");
+        double totalSold = bankSrv.totalSold();
+        return new ResponseEntity<>(totalSold, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

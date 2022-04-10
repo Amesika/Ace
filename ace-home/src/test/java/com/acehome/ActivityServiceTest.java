@@ -188,8 +188,6 @@ public class ActivityServiceTest {
                 actRep.getByDescription("descriptionToDelete")) ;
         }
 
-        actualAct = actSrv.deleteActivity(expectedActDto.getId());
-
         assertEquals(actualAct.getAmount(), expectedActDto.getAmount());
         assertEquals(actualAct.getDescription(), expectedActDto.getDescription());
         assertEquals(actualAct.getId(), expectedActDto.getId());
