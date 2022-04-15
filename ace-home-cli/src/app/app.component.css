@@ -1,8 +1,26 @@
-.navbar{
-    padding: 0;
+.navbar {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    min-width: 320px;
+   
+    background-color: #fff !important;
+    border-top: 3px solid #003883;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 201;
+    height: 63px;
+    width: auto;
+    transition: all .2s ease;
+    box-shadow: 1px 0 1px 1px rgb(0 0 0 / 10%);
 }
 
-.core{
+.navbar-brand{
+    color: #1a2e45 !important;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .menu{
@@ -16,29 +34,86 @@
 }
 
 
-
-
-.menu-item a{
-    text-decoration: none;
-    color: black;
-    font-weight: lighter;
-    
+.holygrail {
+    padding-top: 63px;
 }
 
-.menu-item .is-active{
-    font-weight: 700;
+.menu-box {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgb(102 126 155 / 6%);
+    overflow: hidden;
+    padding-top: 5px;
+    position: relative;
+}
+
+.button, button {
+    background-color: #e2017b;
+    color: #fff;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+    vertical-align: middle;
+    max-width: 100%;
+    padding: 15px 25px;
+    white-space: normal;
     text-align: center;
-   
+    text-decoration: none;
+    border: 0 none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    transition: background-color .2s ease;
 }
 
-ul{
-    margin: O;
+.menu-box-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #d20073;
+    padding: 0.9rem;
+    border-top: solid 5px #d20073;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+nav ul, nav ol {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
     padding: 0;
 }
 
-li.menu-item{
+.menu-box-item {
+    border-top: 1px solid #eaeff8;
+}
+li {
     list-style-type: none;
-    margin: 7px 0;
+}
+
+.menu-item {
+    background: transparent;
+    display: block;
+    color: #003883;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+    padding: 0.9rem;
+    position: relative;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+.menu-item:hover {
+background-color: #eaeff8;
 }
 
 
