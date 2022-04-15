@@ -68,15 +68,15 @@ export class DebtFormComponent implements OnInit {
   onSubmitForm() {
     console.log('onSubmitForm')
     const formValue = this.debtForm.value;
-    const newDebt = new Debt(
-      formValue['name'],
-      formValue['description'],
-      formValue['creditorName'],
-      formValue['initAmount'],
-      formValue['currentAmount'],
-      formValue['paymentAmount'],
-      formValue['rate'],
-    );
+    const newDebt = new Debt
+    newDebt.name = formValue['name'];
+    newDebt.description = formValue['description'];
+    newDebt.creditorName = formValue['creditorName'];
+    newDebt.initAmount = formValue['initAmount'];
+    newDebt.currentAmount = formValue['currentAmount'];
+    newDebt.paymentAmount = formValue['paymentAmount'];
+    newDebt.rate = formValue['rate'];
+
 
     if (this.option == 1)
       newDebt.id = this.data.id;

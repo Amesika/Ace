@@ -14,27 +14,12 @@
         </div>
         <nav>
           <ul>
-            <li class="menu-box-item">
-              <a [routerLink]="['home']" class="menu-item" [routerLinkActive]="'is-active'"><i class="fa fa-tachometer"
-                aria-hidden="true"></i> Tableau de bord</a>
+            <li class="menu-box-item" *ngFor="let menu of this.menus">
+              <a [routerLink]='menu.link' [routerLinkActive]="menu.linkActive" class="menu-item">
+                <i [ngClass]="menu.icon" aria-hidden="true"></i>
+                {{menu.title}}
+              </a>
             </li>
-            <li class="menu-box-item">
-              <a [routerLink]="['task']" class="menu-item" [routerLinkActive]="'is-active'"><i class="fa fa-tasks"
-                aria-hidden="true"></i> Tâches</a>
-            </li>
-            <li class="menu-box-item">
-              <a [routerLink]="['activity']" class="menu-item" [routerLinkActive]="'is-active'"><i
-                class="fa fa-briefcase" aria-hidden="true"></i> Activité</a>
-            </li>
-            <li class="menu-box-item">
-              <a [routerLink]="['bank']" class="menu-item" [routerLinkActive]="'is-active'"><i class="fa fa-university"
-                aria-hidden="true"></i> Banques</a>
-            </li>
-            <li class="menu-box-item">
-              <a [routerLink]="['debt']" class="menu-item" [routerLinkActive]="'is-active'"><i
-                class="fa fa-credit-card-alt" aria-hidden="true"></i> Dêttes</a>
-            </li>
-           
           </ul>
         </nav>
       </div>

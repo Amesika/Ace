@@ -1,0 +1,12 @@
+<li class="card-item">
+    <a class="card-item-link" (click)="getItemDetails()">
+        
+        <span class="debt">
+            <span class="debt-name">{{debt.creditorName}}</span>
+            <span class="debt-sold" >
+                <app-ace-number [value]="debt.currentAmount"  ></app-ace-number>
+            </span>
+        </span>
+        <span class="debt-number">{{debt.name}}</span>
+    </a>
+</li>

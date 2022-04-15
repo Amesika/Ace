@@ -1,0 +1,13 @@
+<li class="card-item">
+    <a class="card-item-link" (click)="getItemDetails()">
+        
+        <span class="bank">
+            <span class="bank-name">{{bank.name}}</span>
+            <span class="bank-sold">
+                <app-ace-number [value]="bank.sold"  ></app-ace-number>
+            </span>
+        </span>
+        <span class="bank-number">{{bank.number}}</span>
+       
+    </a>
+</li>

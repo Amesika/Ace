@@ -1,9 +1,6 @@
 <div class="container-fluid">
-  <h2 class="wlc">
-    Bienvenu sur AceHome...
-  </h2>
-  <hr>
-  <h3 class="wlc-title">
+
+  <!--<h3 class="wlc-title">
     Tableau récapitulatif des sources et des dépenses
   </h3>
   <div class="table-responsive">
@@ -36,5 +33,13 @@
         </tr>
       </tbody>
     </table>
+  </div> -->
+  <div class="row">
+    <div class="col">
+      <app-ace-card-dash [cardDash]=cdBank></app-ace-card-dash>
+    </div>
+    <div class="col">
+      <app-ace-card-dash [cardDash]=cdDebt></app-ace-card-dash>
+    </div>
   </div>
 </div>

@@ -59,6 +59,7 @@ export class BankFormComponent implements OnInit {
       newBank.id = this.data.id;
 
     this.bankSrv.postBank(newBank).subscribe(data => {
+      console.log(data);
       this.dataEvent.emit();
     })
 

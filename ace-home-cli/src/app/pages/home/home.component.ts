@@ -3,6 +3,10 @@ import * as moment from 'moment';
 import { Subscription } from 'rxjs';
 import { DataTableDsRow, DS } from 'src/app/models/data-table';
 import { DashbordService } from 'src/app/services/dashbord.service';
+import { DebtService } from 'src/app/services/debt.service';
+import { CardDash } from 'src/app/shared/model/card-dash';
+import { Bank } from '../bank/models/bank';
+import { BankService } from '../bank/services/bank.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +15,18 @@ import { DashbordService } from 'src/app/services/dashbord.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private dashSrv: DashbordService) { }
+  constructor(
+    private dashSrv: DashbordService,
+    private debtSrv: DebtService,
+    private bankSrv: BankService) {
+    this.cdBank = new CardDash;
+    this.cdBank.title = "Total des avoirs en banques"
+    this.cdDebt = new CardDash;
+    this.cdDebt.title = "Total des dêttes"
+  }
+
+  cdBank: CardDash;
+  cdDebt: CardDash;
 
   monthslabs = moment.monthsShort();
   yearlab: String = "Année";
@@ -22,6 +37,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.getData();
+    this.getTotalBank();
+    this.getTotalDebt();
   }
 
   getData() {
@@ -58,6 +75,18 @@ export class HomeComponent implements OnInit {
         }
       );
 
+  }
+
+  getTotalDebt() {
+    this.debtSrv.getBalance().subscribe((data) => {
+      this.cdDebt.amount = data;
+    })
+  }
+
+  getTotalBank() {
+    this.bankSrv.getTotalSold().subscribe((data) => {
+      this.cdBank.amount = data;
+    })
   }
 
 }

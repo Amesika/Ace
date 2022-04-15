@@ -1,21 +1,21 @@
-<app-balance [balance]=balance (addEvent)="addDebt()">
-    <div class="detail col-12"list>
-      <div class="row" >
-        <div class="col-12">
-          <app-list title="Dêttes" [modalId_]=balance.modalId_  [option]="1" [items]=debts color="#0c2461" (crudItemEvent)="handleCrudEvent($event)">
-          </app-list>
-        </div>
-      </div>
-    </div>
+<app-dash-header [dashHeader]="dashHeader" [option]="option">
+</app-dash-header>
 
-    <span crud>
-      <app-debt-form *ngIf="balance.modalOption<3" [option]="balance.modalOption" [data]="balance.selectData"
-        (dataEvent)="handleDataEvent()">
-      </app-debt-form>
-    </span>
+<div class="addDebt row align-items-end">
+  <div class="col-md-4 ms-auto">
+    <button class="btn btn-primary pull-right" data-bs-toggle="modal" (click)="addDebt()"
+      [attr.data-bs-target]="modalControl.modalId_"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+  </div>
+</div>
 
-    <span delete>
-      <app-delete-form *ngIf="balance.modalOption==3" [data]="balance.selectData" (dataEvent)="handleDeleteEvent($event)">
-      </app-delete-form>
-    </span>
-  </app-balance>
+<app-ace-panel [acePanel]="acePanel">
+  <div select=[items]>
+    <app-debt-panel-item [debt]="item" *ngFor="let item of acePanel.items"></app-debt-panel-item>
+  </div>
+</app-ace-panel>
+
+<app-modal [modalId]="modalControl.modalId" [title]="modalControl.modalTitle">
+  <app-debt-form *ngIf="modalControl.modalOption<3" [option]="modalControl.modalOption" (dataEvent)="handleDataEvent()">
+  </app-debt-form>
+</app-modal>
+

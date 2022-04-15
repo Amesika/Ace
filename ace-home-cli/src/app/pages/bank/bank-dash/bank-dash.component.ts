@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
+import { ModalContol } from 'src/app/models/modal-control';
 import { Balance } from 'src/app/shared/balance/balance';
+import { AcePanel } from 'src/app/shared/model/ace-panel';
+import { DashHeader } from 'src/app/shared/model/dash-header';
 import { Bank } from '../models/bank';
 import { BankSold } from '../models/bank-sold';
 import { BankService } from '../services/bank.service';
+moment.locale("fr");
 
 @Component({
   selector: 'app-bank-dash',
@@ -11,48 +16,51 @@ import { BankService } from '../services/bank.service';
 })
 export class BankDashComponent implements OnInit {
 
+  dashHeader!:DashHeader;
+  acePanel!:AcePanel;
+  modalControl:ModalContol;
+
   balance: Balance = new Balance;
-
   banks: BankSold[] = [];
-
   constructor(private bankSrv: BankService) {
-    this.balance.title = "Solde de tous les banques";
-    this.balance.modalId = "bank-dash";
-    this.balance.modalId_ = "#bank-dash";
-    this.balance.modalTitle = "";
-    this.balance.modalOption = 0;
+    this.dashHeader = new DashHeader;
+    this.acePanel = new AcePanel
+    this.acePanel.title = "Tous les banques"
+    this.modalControl = new ModalContol;
+    this.modalControl.modalId = "bank-dash";
+    this.modalControl.modalId_ = "#bank-dash";
+    this.modalControl.modalTitle = "";
+    this.modalControl.modalOption = 0;
+
   }
 
   ngOnInit(): void {
     this.getBanks();
+    this.dashHeader.title = "Total des avoirs au " + moment().format('Do MMMM YYYY');
   }
 
   addBank() {
     console.log("addBank")
-    this.balance.modalTitle = "Créer une banque"
+    this.modalControl.modalTitle = "Créer une banque"
     let bank = new Bank();
-    this.balance.modalOption = 0;
-    this.balance.selectData = bank;
+    this.modalControl.modalOption = 0;
+    this.modalControl.selectData = bank;
   }
 
   handleDataEvent() {
+    console.log("HandleDataEvent")
     this.getBanks();
   }
 
   getBanks() {
-    for (let index = 0; index < 5; index++) {
-      let bank = new BankSold
-      bank.name = "Bank - " + index;
-      bank.number = "" + index;
-      this.banks.push(bank);
-    }
 
     this.bankSrv.getBanksWithSold().subscribe((banks) => {
-      this.banks = banks;
+      this.acePanel.items = banks;
     })
 
     this.bankSrv.getTotalSold().subscribe((sold) => {
-      this.balance.value = sold;
+      this.dashHeader.amount = sold;
+      this.acePanel.subTitle = sold;
     })
   }
 }

@@ -3,4 +3,11 @@ export class Bank {
     name!: string;
     number!: string;
     description!: string;
+
+    constructor() {
+        this.id = 0;
+        this.name = "name";
+        this.number = "number";
+        this.description = "description";
+    }
 }

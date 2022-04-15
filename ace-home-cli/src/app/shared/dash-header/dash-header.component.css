@@ -1,0 +1,31 @@
+.dash {
+    padding: 20px 15px;
+    box-shadow: 0 0 15px rgb(26 46 69 / 6%);
+    background: linear-gradient(95.83deg, #1A2E45 0%, #003883 100%);
+    color: #c7d2e0;
+    font-size: 14px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.dash-container {
+    width: 100%;
+    text-align: center;
+}
+
+.dash-amount {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 37px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.dash-amount span {
+    position: relative;
+}
+
+.ace-blue{
+    color: white !important;
+}

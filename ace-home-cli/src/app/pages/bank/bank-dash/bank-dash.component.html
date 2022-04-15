@@ -1,11 +1,20 @@
-<app-balance [balance]=balance (addEvent)="addBank()">
-  <span crud>
-    <app-bank-form *ngIf="balance.modalOption<3" [option]="balance.modalOption" [data]="balance.selectData"
-      (dataEvent)="handleDataEvent()">
-    </app-bank-form>
-  </span>
-</app-balance>
+<app-dash-header [dashHeader]="dashHeader">
+</app-dash-header>
 
-<div class="container-fluid">
-  <app-bank-card [bank]="bank" *ngFor="let bank of banks" ></app-bank-card>
+<div class="addbank row align-items-end">
+  <div class="col-md-4 ms-auto">
+    <button class="btn btn-primary pull-right" data-bs-toggle="modal" (click)="addBank()"
+      [attr.data-bs-target]="modalControl.modalId_"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+  </div>
 </div>
+
+<app-ace-panel [acePanel]="acePanel">
+  <div select=[items]>
+    <app-ace-panel-item-bank [bank]="item" *ngFor="let item of acePanel.items"></app-ace-panel-item-bank>
+  </div>
+</app-ace-panel>
+
+<app-modal [modalId]="modalControl.modalId" [title]="modalControl.modalTitle">
+  <app-bank-form *ngIf="modalControl.modalOption<3" [option]="modalControl.modalOption" (dataEvent)="handleDataEvent()">
+  </app-bank-form>
+</app-modal>

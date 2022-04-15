@@ -1,0 +1,53 @@
+.card-item {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color .1s ease-in-out;
+    margin: 0 -15px;
+    padding: 15px;
+    position: relative;
+    border-top: 1px solid rgb(0, 0, 0, 0.125);
+}
+
+.card-item:hover {
+    background-color: #eaeff8;
+}
+
+.card-item-link {
+    display: block;
+    padding: 15px;
+    margin: -15px;
+}
+
+a,
+a:active,
+a:hover,
+ins {
+    text-decoration: none;
+}
+
+.bank {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.bank-name {
+    color: #003883;
+}
+
+.bank-sold {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.bank-number {
+    color: #d20073;
+    font-size: .8rem;
+    font-weight: 400;
+    line-height: 1.25;
+
+}

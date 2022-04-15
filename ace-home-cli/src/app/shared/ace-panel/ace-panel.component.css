@@ -1,0 +1,43 @@
+.card-header {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(90deg, #009de0 0%, #23bbea 100%);
+
+}
+
+.card {
+    border-radius: 5px;
+    margin-bottom: 3rem;
+    box-shadow: 0 0 15px rgb(102 126 155 / 6%);
+    border: none;
+}
+
+.card-header-left {
+    float: left;
+}
+
+.card-header-right {
+    float: right;
+    font-size: 16px;
+}
+
+.card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+   
+}
+
+.card-body {
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    padding: 0 15px;
+}
+
+
