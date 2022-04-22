@@ -1,12 +1,12 @@
 <nav class="navbar navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">ACE HOME</a>
+    <a class="navbar-brand" href="#">ACE HOME <span class="env">{{env}}</span></a> 
   </div>
 </nav>
 
 <div class="container-fluid holygrail">
   <div class="row">
-    <div class="col-3">
+    <div class="col-12  col-sm-3">
 
       <div class="menu-box">
         <div class="menu-box-title">
@@ -14,17 +14,35 @@
         </div>
         <nav>
           <ul>
-            <li class="menu-box-item" *ngFor="let menu of this.menus">
-              <a [routerLink]='menu.link' [routerLinkActive]="menu.linkActive" class="menu-item">
-                <i [ngClass]="menu.icon" aria-hidden="true"></i>
-                {{menu.title}}
-              </a>
-            </li>
+            <div *ngFor="let menu of this.menus">
+              <li *ngIf="!menu.href" class="menu-box-item">
+                <a data-bs-toggle="collapse" [routerLink]='menu.link' [routerLinkActive]="menu.linkActive" class="menu-item">
+                  <i [ngClass]="menu.icon" aria-hidden="true"></i>
+                  {{menu.title}}
+                </a>
+              </li>
+              <li *ngIf="menu.href" class="menu-box-item">
+                <a data-bs-toggle="collapse" [href]="menu.href" [routerLinkActive]="menu.linkActive" role="button" class="menu-item">
+                  <i [ngClass]="menu.icon" aria-hidden="true"></i>
+                  {{menu.title}}
+                </a>
+                <div class="collapse multi-collapse" id="activity">
+                  <ul>
+                    <li class="menu-box-item" *ngFor="let subMenu of menu.subMenus">
+                      <a [routerLink]='subMenu.link' [routerLinkActive]="subMenu.linkActive" class="menu-item">
+                        <i [ngClass]="subMenu.icon" aria-hidden="true"></i>
+                        {{subMenu.title}}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </div>
           </ul>
         </nav>
       </div>
     </div>
-    <div class="col-9">
+    <div class="col-12 col-sm-9">
       <router-outlet></router-outlet>
     </div>
   </div>

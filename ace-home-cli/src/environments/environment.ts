@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_URL:"http://localhost:8080/api/ace-home/"
+  ENV:"DEV",
+  API_URL:"http://85.170.84.116:8080/api/ace-home/"
 };
 
 /*

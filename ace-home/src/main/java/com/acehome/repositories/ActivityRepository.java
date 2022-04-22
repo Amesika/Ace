@@ -2,7 +2,7 @@ package com.acehome.repositories;
 
 import java.util.List;
 
-import com.acehome.entities.Activity;
+import com.acehome.entities.activity.Activity;
 import com.acehome.model.IMDsDTO;
 
 import org.springframework.data.jpa.repository.JpaRepository;

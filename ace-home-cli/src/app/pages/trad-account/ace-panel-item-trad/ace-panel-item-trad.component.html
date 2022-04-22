@@ -1,0 +1,13 @@
+<li [ngClass]="getActive() == 'true' ? 'card-item' : 'is-not-active card-item' " class="card-item">
+    <a class="card-item-link" (click)="getItemDetails()">
+        
+        <span class="trad">
+            <span class="trad-name">{{trad.name}} <span class="trad-type">{{trad.type}}</span></span>
+            <span class="trad-sold">
+                <app-ace-number [value]="trad.sold"  ></app-ace-number>
+            </span>
+        </span>
+        <span class="trad-number"><b>{{trad.sname}}</b> - {{trad.sauthor}}</span>
+       
+    </a>
+</li>

@@ -123,3 +123,8 @@ a {
 .menu-item.is-active {
     border-left: 3px solid #e2017b;
 }
+
+.env {
+   font-size: 1rem;
+   color: #667e9b ;
+}

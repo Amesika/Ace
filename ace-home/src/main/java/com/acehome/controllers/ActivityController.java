@@ -2,7 +2,7 @@ package com.acehome.controllers;
 
 import java.util.List;
 
-import com.acehome.entities.Activity;
+import com.acehome.entities.activity.Activity;
 import com.acehome.model.ActivityDTO;
 import com.acehome.services.ActivityService;
 

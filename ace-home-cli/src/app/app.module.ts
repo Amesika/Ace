@@ -13,11 +13,10 @@ import { TaskModule } from './pages/task/task.module';
 import { SharedModule } from './shared/shared.module';
 import { APP_ROUTES } from './routes/app.routes';
 
-
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

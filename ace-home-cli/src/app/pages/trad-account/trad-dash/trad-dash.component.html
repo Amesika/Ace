@@ -1,0 +1,8 @@
+<app-dash-header [dashHeader]="dashHeader" [option]="option">
+</app-dash-header>
+
+<app-ace-panel [acePanel]="acePanel">
+    <div select=[items]>
+      <app-ace-panel-item-trad [trad]="item" *ngFor="let item of acePanel.items"></app-ace-panel-item-trad>
+    </div>
+  </app-ace-panel>

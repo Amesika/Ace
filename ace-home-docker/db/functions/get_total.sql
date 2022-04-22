@@ -12,7 +12,7 @@ AS $BODY$
 declare
    total_amount integer;
 begin
-   select sum(amount) 
+   select coalesce(sum(amount), 0) 
    into total_amount
    from activity
    where activity._type = type;

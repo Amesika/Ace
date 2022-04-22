@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.acehome.entities.Activity;
+import com.acehome.entities.activity.Activity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -41,7 +41,7 @@ public class Bank {
     @Column()
     private String description;
 
-    @OneToMany(mappedBy="bank", orphanRemoval = true,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="bank",cascade = CascadeType.ALL)
     private Set<Activity> activities;
 
     @Column()

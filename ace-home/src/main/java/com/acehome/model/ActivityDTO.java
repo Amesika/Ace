@@ -1,6 +1,7 @@
 package com.acehome.model;
 
 import com.acehome.model.bank.BankDto;
+import com.acehome.model.tradingaccount.TradingAccountDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,4 +20,5 @@ public class ActivityDTO {
     private String _type;
     private String _date;
     private BankDto bankDto;
+    private TradingAccountDto traccountDto;
 }

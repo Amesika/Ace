@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
-import com.acehome.entities.Activity;
+import com.acehome.entities.activity.Activity;
 import com.acehome.mapper.ActivityMapper;
 import com.acehome.model.ActivityDTO;
 import com.acehome.repositories.ActivityRepository;
@@ -106,12 +106,6 @@ public class ActivityServiceTest {
             expectedActDto.setNote("vjouboerhbo qhrmfoqh oihqbfoze quhzfioubez bqzieuohz");
             expectedActDto.set_date("2021-12-19");
             expectedActDto.set_type("depense");
-            expectedActDto = mapper.activityToDto(
-                actRep.saveAndFlush(
-                    mapper.dtoToActivity(expectedActDto))) ;
-        }else{
-            expectedActDto = mapper.activityToDto(
-                actRep.getByDescription("descriptionToUpdate")) ;
         }
 
         expectedActDto.setDescription("descriptionToUpdate2");
@@ -146,12 +140,6 @@ public class ActivityServiceTest {
             expectedActDto.setNote("vjouboerhbo qhrmfoqh oihqbfoze quhzfioubez bqzieuohz");
             expectedActDto.set_date("2021-12-19");
             expectedActDto.set_type("depense");
-            expectedActDto = mapper.activityToDto(
-                actRep.saveAndFlush(
-                    mapper.dtoToActivity(expectedActDto))) ;
-        }else{
-            expectedActDto = mapper.activityToDto(
-                actRep.getByDescription("getActivityTest")) ;
         }        
 
         actualActDto = actSrv.getActivity(expectedActDto.getId());
@@ -180,14 +168,7 @@ public class ActivityServiceTest {
             expectedActDto.setNote("vjouboerhbo qhrmfoqh oihqbfoze quhzfioubez bqzieuohz");
             expectedActDto.set_date("2021-12-19");
             expectedActDto.set_type("depense");
-            expectedActDto = mapper.activityToDto(
-                actRep.saveAndFlush(
-                    mapper.dtoToActivity(expectedActDto))) ;
-        }else{
-            expectedActDto = mapper.activityToDto(
-                actRep.getByDescription("descriptionToDelete")) ;
         }
-
         assertEquals(actualAct.getAmount(), expectedActDto.getAmount());
         assertEquals(actualAct.getDescription(), expectedActDto.getDescription());
         assertEquals(actualAct.getId(), expectedActDto.getId());
