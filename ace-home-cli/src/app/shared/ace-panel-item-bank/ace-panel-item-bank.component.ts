@@ -17,6 +17,7 @@ export class AcePanelItemBankComponent implements OnInit {
   }  
 
   ngOnInit(): void {
+  
   }
 
   getItemDetails() {

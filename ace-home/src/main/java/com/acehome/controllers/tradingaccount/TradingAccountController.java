@@ -2,9 +2,11 @@ package com.acehome.controllers.tradingaccount;
 
 import java.util.List;
 
+import com.acehome.model.ActivityDTO;
 import com.acehome.model.tradingaccount.TradingAccountDto;
 import com.acehome.model.tradingaccount.TradingAccountSoldDto;
 import com.acehome.model.tradingaccount.TradingAccountStateDto;
+import com.acehome.services.ActivityService;
 import com.acehome.services.tradingaccount.TradingAccountService;
 
 import org.apache.logging.log4j.LogManager;
@@ -31,6 +33,9 @@ public class TradingAccountController {
     @Autowired
     TradingAccountService tradingAccountSrv;
 
+    @Autowired
+    ActivityService actSrv;
+
     private static Logger logger = LogManager.getLogger(TradingAccountController.class);
 
     @GetMapping()
@@ -53,7 +58,6 @@ public class TradingAccountController {
         List<TradingAccountSoldDto> tradingAccountsDto = tradingAccountSrv.soldDetails();
         return new ResponseEntity<>(tradingAccountsDto, HttpStatus.OK);
     }
-
     
     @GetMapping("state")
     public ResponseEntity<?> getTradingAccountsState() {
@@ -74,6 +78,13 @@ public class TradingAccountController {
         logger.info("Get one tradingAccount");
         TradingAccountDto tradingAccountDto = tradingAccountSrv.get(id);
         return new ResponseEntity<>(tradingAccountDto, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/activities")
+    public ResponseEntity<?> getTradingAccountActivities(@PathVariable("id") Long id) {
+        logger.info("Get Activities trading account");
+		List<ActivityDTO> actsDto =  actSrv.listActivity(id);
+		return new ResponseEntity<>(actsDto, HttpStatus.OK);
     }
 
     @PostMapping()

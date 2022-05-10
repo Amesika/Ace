@@ -1,0 +1,11 @@
+<div class="c-card">
+    <div>
+      <div class="sold-text">
+        {{this.tradState.title}}
+    </div>
+      <div *ngFor="let state of this.tradState.arrayTradAccountState" >
+        <span class="action">{{state.action}} </span>
+        <span><app-ace-number [value]="state.sold"  [devise]="tradState.devise" ></app-ace-number></span>
+     </div>
+    </div>
+</div>

@@ -19,6 +19,8 @@ export class TradDashComponent implements OnInit {
     this.dashHeader = new DashHeader;
     this.acePanel = new AcePanel;
     this.acePanel.title = "Tous les comptes de trading";
+    this.acePanel.devise = "USD";
+    this.dashHeader.devise = "USD";
   }
 
   ngOnInit(): void {

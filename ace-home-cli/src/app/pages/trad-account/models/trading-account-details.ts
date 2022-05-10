@@ -1,13 +1,13 @@
-export class TradAccountSold {
+export class TradAccountDetails {
     id: number;
-    name: string;
-    code: string;
+    name: String;
+    code: String;
     active: Boolean;
-    type: string;
-    site: string;
-    sauthor: string;
-    sname: string;
-    ssite: string;
+    type: String;
+    site: String;
+    sauthor: String;
+    sname: String;
+    ssite: String;
     sold: number;
 
     constructor() {
@@ -23,3 +23,4 @@ export class TradAccountSold {
         this.sold = 0;
     }
 }
+

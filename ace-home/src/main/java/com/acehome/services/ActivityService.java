@@ -73,6 +73,17 @@ public class ActivityService {
         return activities;
     }
 
+        // Liste Activity
+        public List<ActivityDTO> listActivity(Long id) {
+
+            List<ActivityDTO> activities;
+            List<Activity> list;
+            // list = actRepo.findAll();
+            list = actRepo.getActivities(id);
+            activities = mapper.map(list);
+            return activities;
+        }
+
     // Liste Activity between two date
     public List<ActivityDTO> listActivity(String startDate, String endDate) {
 

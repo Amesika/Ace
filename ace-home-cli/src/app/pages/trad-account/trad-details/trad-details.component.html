@@ -1,0 +1,26 @@
+<app-ace-card-dash [cardDash]=cdTrad></app-ace-card-dash>
+
+<app-trad-state [tradState]=tradState ></app-trad-state>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" routerLink='trading/details' >Historique</a>
+    </li>
+</ul>
+
+<!--<router-outlet></router-outlet> -->
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Profit/Perte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let activity of activities">
+        <td>{{ activity._date }}</td>
+        <td>{{ activity.amount }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { Menu } from './models/menu';
 
@@ -14,8 +15,16 @@ export class AppComponent implements OnInit {
 
   menus: Menu[] = [];
 
+  public constructor(private titleService: Title) { }
+
+  public setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
+
 
   ngOnInit() {
+
+    this.titleService.setTitle("Ace Home "+this.env);
     this.menus = [
       {
         title: "Tableau de bord",

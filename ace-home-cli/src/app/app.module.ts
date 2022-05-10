@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TaskModule } from './pages/task/task.module';
 import { SharedModule } from './shared/shared.module';
 import { APP_ROUTES } from './routes/app.routes';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { APP_ROUTES } from './routes/app.routes';
     TaskModule,
     SharedModule,
     FormsModule , 
+    DataTablesModule,
     RouterModule.forRoot(APP_ROUTES),   
   ],
   providers: [],

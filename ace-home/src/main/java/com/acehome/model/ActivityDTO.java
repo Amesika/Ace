@@ -1,5 +1,10 @@
 package com.acehome.model;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import com.acehome.entities.activity.Action;
+import com.acehome.entities.activity.Category;
 import com.acehome.model.bank.BankDto;
 import com.acehome.model.tradingaccount.TradingAccountDto;
 
@@ -20,5 +25,7 @@ public class ActivityDTO {
     private String _type;
     private String _date;
     private BankDto bankDto;
+    private Action action;
+    private Category category;
     private TradingAccountDto traccountDto;
 }

@@ -16,9 +16,6 @@ export const APP_ROUTES: Routes = [
         loadChildren: () => import('../pages/trad-account/trad-account.module').then(tr => tr.TradAccountModule),
     },  
     {
-        path: '**', component: HomeComponent
-    }, 
-    {
         path: '', redirectTo: '/home', pathMatch: 'full'
     }
 ];

@@ -4,7 +4,7 @@
         <span class="debt">
             <span class="debt-name">{{debt.creditorName}}</span>
             <span class="debt-sold" >
-                <app-ace-number [value]="debt.currentAmount"  ></app-ace-number>
+                <app-ace-number [value]="debt.currentAmount" [devise]="'EUR'" ></app-ace-number>
             </span>
         </span>
         <span class="debt-number">{{debt.name}}</span>

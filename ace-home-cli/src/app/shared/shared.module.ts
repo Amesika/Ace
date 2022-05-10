@@ -9,6 +9,8 @@ import { AceNumberComponent } from './ace-number/ace-number.component';
 import { AcePanelComponent } from './ace-panel/ace-panel.component';
 import { AcePanelItemBankComponent } from './ace-panel-item-bank/ace-panel-item-bank.component';
 import { AceCardDashComponent } from './ace-card-dash/ace-card-dash.component';
+import { TradStateComponent } from './trad-state/trad-state.component';
+import { AceDeviseComponent } from './ace-devise/ace-devise.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { AceCardDashComponent } from './ace-card-dash/ace-card-dash.component';
     AcePanelComponent,
     AcePanelItemBankComponent,
     AceCardDashComponent,
+    TradStateComponent,
+    AceDeviseComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +39,7 @@ import { AceCardDashComponent } from './ace-card-dash/ace-card-dash.component';
     AcePanelComponent,
     AcePanelItemBankComponent,
     AceCardDashComponent,
+    TradStateComponent
   ],
 })
 export class SharedModule { }

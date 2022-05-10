@@ -1,9 +1,9 @@
-<span *ngIf="!option" [ngClass]="value>0 ? 'ace-blue' : 'ace-red '">
-    {{value| number: '1.2-2'}} €
+<span *ngIf="!option" [ngClass]="value>=0 ? 'ace-blue' : 'ace-red '">
+    {{value| number: '1.2-2'}} <app-ace-devise [deviseStr]="devise"></app-ace-devise>
 </span>
 <span *ngIf="option==100">
-    {{value| number: '1.2-2'}} €
+    {{value| number: '1.2-2'}} <app-ace-devise [deviseStr]="devise"></app-ace-devise>
 </span>
-<span *ngIf="option==1" [ngClass]="value>0 ? 'ace-with' : 'ace-red '">
-    {{value| number: '1.2-2'}} €
+<span *ngIf="option==1" [ngClass]="value>=0 ? 'ace-with' : 'ace-red '">
+    {{value| number: '1.2-2'}} <app-ace-devise [deviseStr]="devise"></app-ace-devise>
 </span>

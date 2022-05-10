@@ -2,6 +2,7 @@ package com.acehome.repositories.tradingaccount;
 
 import java.util.List;
 
+import com.acehome.entities.activity.Activity;
 import com.acehome.entities.tradingaccount.TradingAccount;
 import com.acehome.model.tradingaccount.TradingAccountSoldDto;
 import com.acehome.model.tradingaccount.TradingAccountStateDto;
@@ -28,5 +29,8 @@ public interface TradingAccountRepository extends JpaRepository<TradingAccount, 
 
     @Query(value = "SELECT * From get_activity_state_by_tracc(:accId)", nativeQuery = true)
     List<TradingAccountStateDto> getTradingAccountState(@Param("accId") Long id);
+
+    @Query(value = "SELECT * FROM activity WHERE traccount_id=:id AND _delete=false", nativeQuery = true)
+    List<Activity> getActivities(@Param("id") Long id);
 }
 

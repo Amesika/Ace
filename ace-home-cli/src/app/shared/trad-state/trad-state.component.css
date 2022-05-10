@@ -1,0 +1,18 @@
+.c-card {
+    border-radius: 0.4rem;
+    background-color: #fff;
+    box-shadow: 0 0 1.5rem rgb(102 126 155 / 6%);
+    margin-bottom: 0.8rem;
+    padding: 1.5rem;
+}
+
+.action{
+    min-width: 120px;
+    display: inline-block;
+}
+
+.sold-text{
+    font-size: 1.2rem;
+    color: #667e9b !important;
+    padding-bottom: 0.3rem;
+}

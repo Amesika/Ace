@@ -14,6 +14,8 @@ export class AceNumberComponent implements OnInit {
   value:number = 0;
   @Input()
   option!:number ;
+  @Input()
+  devise:string = '';
    
   constructor() { }
 
